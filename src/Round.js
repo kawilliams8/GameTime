@@ -15,7 +15,6 @@ class FullRound extends Round {
     this.currentSurvey = currentSurvey;
     this.turnCounter = 1;
     this.currentPlayer;
-    
   }
 }
 
