@@ -9,7 +9,6 @@ class FullTurn extends Turn {
   constructor(currentSurvey, correctGuesses = []) {
     super(currentPlayer, currentSurvey)
     this.currentPlayer = currentPlayer;
-    this.currentSurvey = currentSurvey;
     this.correctGuesses = correctGuesses;
   }
 
