@@ -18,5 +18,5 @@ describe('Player', () => {
 	it('should be a function that instantiates a player', () => {
 		expect(Player).to.be.a('function');
 		expect(player).to.be.an.instanceof(Player)
-	})
+	});
 })
