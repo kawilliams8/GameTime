@@ -2,7 +2,8 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Player from '../src/Player.js';
-import Turn from '../src/Turn.js';
+import FullRound from '../src/Round.js'
+import Game from '../src/Game.js'
 // import spies from 'chai-spies';
 // import DOMupdates from '../src/DOMupdates.js';
 // chai.use(spies);
@@ -29,5 +30,6 @@ describe('Game', () => {
 	it('should be a function that instantiates a game', () => {
 		expect(Game).to.be.a('function');
 		expect(game).to.be.an.instanceof(Game);
-	});
+  });
+  
 })

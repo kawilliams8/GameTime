@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 import Player from '../src/Player.js';
 import Turn from '../src/Turn.js';
+import FullTurn from '../src/Turn.js';
 // import spies from 'chai-spies';
 // import DOMupdates from '../src/DOMupdates.js';
 // chai.use(spies);
@@ -10,7 +11,7 @@ import Turn from '../src/Turn.js';
 
 // chai.spy.on(DOMupdates, 'updateLater', () => true);
 
-describe('Turn', () => {
+describe('FullTurn', () => {
 	let player1, player2, turn, survey;
 	beforeEach(() => {
       player1 = new Player('Djavan');
@@ -21,11 +22,32 @@ describe('Turn', () => {
       { answer: 'Donuts', respondents: 24, surveyId: 1 },
       { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
     ]
-      turn = new Turn(player2, survey)
+      turn = new FullTurn(player2, survey)
 	});
 
 	it('should be a function that instantiates a player', () => {
-		expect(Turn).to.be.a('function');
-		expect(turn).to.be.an.instanceof(Turn)
-	});
+		expect(FullTurn).to.be.a('function');
+		expect(turn).to.be.an.instanceof(FullTurn);
+  });
+  
+  it('should receive information from Turn', () => {
+    expect(turn.currentPlayer).to.equal(player1);
+    expect(turn.currentSurvey).to.equal(survey);
+  })
+
 })
+
+// describe('FastTurn'), () => {
+  // let player1, player2, turn, survey;
+  // beforeEach(() => {
+  //   player1 = new Player('Djavan');
+  //   player2 = new Player('Katie');
+  //   survey = [
+  //     { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' },
+  //     { answer: 'Beer', respondents: 67, surveyId: 1 },
+  //     { answer: 'Donuts', respondents: 24, surveyId: 1 },
+  //     { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
+  //   ]
+  //   turn = new Turn(player2, survey)
+  // });
+// }

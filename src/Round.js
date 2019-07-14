@@ -4,7 +4,6 @@ class Round {
     this.playerTwo = playerTwo;
     this.startingPlayer = startingPlayer;
     this.currentSurvey = currentSurvey;
-
   }
 }
 
@@ -31,4 +30,4 @@ class FullRound extends Round {
   }
 }
 
-export default Round;
+export default FullRound;

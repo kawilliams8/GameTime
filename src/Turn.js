@@ -32,5 +32,4 @@ class FullTurn extends Turn {
     // DOMupdates to notify if it's still your turn 
   }
 }
-
-export {Turn, FullTurn, FastTurn};
+export {Turn, FullTurn} from '../src/Turn.js';
