@@ -16,7 +16,7 @@ import Game from '../src/Game.js';
 // chai.spy.on(DOMupdates, 'updateLater', () => true);
 
 describe('Game', () => {
-	let player1, player2, turn, survey, round, game, fullTurn, fullRound;
+	let survey, game;
 	beforeEach(() => {
     survey = [
       { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' }, 
@@ -25,12 +25,6 @@ describe('Game', () => {
       { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
     ];
     game = new Game(data);
-    player1 = new Player('Djavan');
-    player2 = new Player('Katie');
-    round = new Round(player1, player2, survey, player1);
-    fullRound = new FullRound();
-    turn = new Turn(player2, survey);
-    fullTurn = new FullTurn();
 	});
 
 	it('should be a function that instantiates a game', () => {
@@ -43,16 +37,19 @@ describe('Game', () => {
   });
 
   it('should select a survey', () => {
+    game.selectSurvey()
     expect(game.currentSurvey.length).to.equal(4);
   });
 
-  it('should store all used surveys', () => {
+  it('should store the used survey ids', () => {
+    game.selectSurvey();
     expect(game.usedSurveys.length).to.equal(1);
   });
 
   it('should only select unused surveys', () => {
-    let surveyCheck = !game.usedSurveys.includes(currentSurvey.id);
-    expect(surveyCheck).to.equal(true);
+    game.usedSurveys = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    game.selectSurvey();
+    expect(game.currentSurvey[0].id).to.equal(1 || 2);
   });
 
   it('should determine if a Full or Fast Round is needed', () => {
