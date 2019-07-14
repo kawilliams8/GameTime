@@ -27,7 +27,6 @@ class Game {
 	startGame() {
 		this.selectSurvey();
 		this.startFullRound();
-	// start our first full round with players and survey
 	// round.beginRound()
 	}
 
@@ -43,18 +42,19 @@ class Game {
 	}
 
 	startFullRound() {
-		this.currentRound = new FullRound(this.playerOne, this.playerTwo, this.currentSurvey, this.returnStartingPlayer());
+		this.currentRound = new FullRound(this, this.returnStartingPlayer());
 		this.currentRound.roundType = 'Full';
 	}
 
 	startFastRound() {
-		this.currentRound = new FastRound(this.playerOne, this.playerTwo, this.currentSurvey, this.returnStartingPlayer());
+		this.currentRound = new FastRound(this, this.returnStartingPlayer());
 		this.currentRound.roundType = 'Fast';
 	}
 
 	returnStartingPlayer() {
 		return this.roundCounter === 1 ? this.playerOne : this.playerTwo;
 	}
+
 }
 
 export default Game;

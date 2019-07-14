@@ -1,16 +1,16 @@
 import Round from './Round.js'
+import FullTurn from './FullTurn.js';
 
 class FullRound extends Round {
     constructor(playerOne, playerTwo, currentSurvey, startingPlayer) {
       super(playerOne, playerTwo, currentSurvey, startingPlayer)
       this.currentPlayer = super.startingPlayer;
       this.correctGuesses = [];
+      this.currentTurn;
     }
   
     beginRound() {
-      //instantiate fullTurn with currentPlayer object & this.correctGuesses & this.currentSurvey
-      //this.correctGuesses is assigned to the correctGuesses array that the turn returns
-      //
+      this.currentTurn = new FullTurn(this.currentPlayer, this.currentSurvey);
     }
   
     continueRound() {
