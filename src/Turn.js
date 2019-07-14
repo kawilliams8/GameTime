@@ -1,5 +1,6 @@
 class Turn {
-  constructor(currentPlayer, currentSurvey) {
+  constructor(currentRound, currentPlayer, currentSurvey) {
+    this.currentRound = currentRound;
     this.currentPlayer = currentPlayer;
     this.currentSurvey = currentSurvey;
   }

@@ -32,14 +32,19 @@ describe('FullTurn', () => {
     expect(game.currentRound.currentTurn.currentSurvey[1].answer).to.equal(answer1);
   });
 
-  it('should receive and check current player guess', () => {
+  it('should receive and check a correct player guess', () => {
     let answer1 = game.currentSurvey[1].answer;
     game.currentRound.currentTurn.checkGuess(answer1);
-    console.log(game.playerOne);
     expect(game.currentRound.currentTurn.correctGuesses.length).to.equal(1);
     expect(game.currentRound.currentTurn.correctGuesses[0]).to.equal(answer1);
   });
 
+  it('should receive and check a previously used correct guess', () => {
+    let answer1 = game.currentSurvey[1].answer;
+    game.currentRound.currentTurn.correctGuesses = [answer1, answer1, answer1];
+    console.log(game.currentRound.currentTurn)
+    game.currentRound.currentTurn.checkGuess(answer1);
+  });
 })
 
 // describe('FastTurn'), () => {

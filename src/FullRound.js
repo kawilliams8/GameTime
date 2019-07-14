@@ -10,7 +10,7 @@ class FullRound extends Round {
     }
   
     beginRound() {
-      this.currentTurn = new FullTurn(this.currentPlayer, this.currentSurvey);
+      this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey);
     }
   
     continueRound() {
@@ -18,6 +18,7 @@ class FullRound extends Round {
     }
   
     endRound() {
+      console.log('This is the end!')
       //increment Game.roundCounter & stop instantiating turns
       //invoke game to start next round
     }
