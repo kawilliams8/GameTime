@@ -18,13 +18,15 @@ import Game from '../src/Game.js';
 describe('Game', () => {
 	let player1, player2, turn, survey, round, game, fullTurn, fullRound;
 	beforeEach(() => {
-      survey = [
+    survey = [
       { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' }, 
       { answer: 'Beer', respondents: 67, surveyId: 1 }, 
       { answer: 'Donuts', respondents: 24, surveyId: 1 },
       { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
     ];
     game = new Game(data);
+    player1 = new Player('Djavan');
+    player2 = new Player('Katie');
     round = new Round(player1, player2, survey, player1);
     fullRound = new FullRound();
     turn = new Turn(player2, survey);
@@ -41,7 +43,11 @@ describe('Game', () => {
   });
 
   it('should select a survey', () => {
-    expect(game.currentSurvey).to.deep.equal(survey);
+    expect(game.currentSurvey.length).to.equal(4);
+  });
+
+  it('should store all used surveys', () => {
+    expect(game.usedSurveys.length).to.equal(1);
   });
 
   it('should only select unused surveys', () => {
@@ -49,17 +55,16 @@ describe('Game', () => {
     expect(surveyCheck).to.equal(true);
   });
 
-  it('should instantiate players', () => {
-    let player1 = game.startGame('Djavan', 'Katie');
-    expect(player1).to.be.an.instanceOf(Player);
-    expect(player1.name).to.equal('Djavan');
+  it('should determine if a Full or Fast Round is needed', () => {
+    game.chooseFullorFast();
+    
   });
 
   it('should instantiate a FullRound', () => {
-    let player1 = game.startGame('Djavan', 'Katie');
-    exp
-    ect(player1).to.be.an.instanceOf(Player);
-    expect(player2.name).to.equal('Katie');
+    game.startGame();
+    expect(round.currentSurvey.length).to.equal(4);
   });
+
+  
 
 })

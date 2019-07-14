@@ -4,6 +4,8 @@ class Round {
     this.playerTwo = playerTwo;
     this.startingPlayer = startingPlayer;
     this.currentSurvey = currentSurvey;
+    this.currentTurn;
+    this.currentRoundType = "";
   }
 }
 
