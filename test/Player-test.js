@@ -20,10 +20,10 @@ describe('Player', () => {
 		expect(player).to.be.an.instanceof(Player)
 	});
 
-	//This came from the game test originally, okay to delete later
-	it('should instantiate players', () => {
-		// game.createPlayers('Djavan', 'Katie');
-		expect(player1).to.be.an.instanceOf(Player);
-		expect(player1.name).to.equal('Djavan');
-	});
+	// //This came from the game test originally, okay to delete later
+	// it('should instantiate players', () => {
+	// 	// game.createPlayers('Djavan', 'Katie');
+	// 	expect(player1).to.be.an.instanceOf(Player);
+	// 	expect(player1.name).to.equal('Djavan');
+	// });
 })

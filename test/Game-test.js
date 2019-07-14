@@ -47,20 +47,20 @@ describe('Game', () => {
   });
 
   it('should only select unused surveys', () => {
-    game.usedSurveys = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    game.usedSurveys = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     game.selectSurvey();
-    expect(game.currentSurvey[0].id).to.equal(1 || 2);
+    expect(game.currentSurvey[0].id).to.equal(2);
   });
 
   it('should determine if a Full or Fast Round is needed', () => {
     game.chooseFullorFast();
-    
+    expect(game.currentRound.roundType).to.equal('Full')
   });
 
-  it('should instantiate a FullRound', () => {
-    game.startGame();
-    expect(round.currentSurvey.length).to.equal(4);
-  });
+  // it('should instantiate a FullRound', () => {
+  //   game.startGame();
+  //   expect(round.currentSurvey.length).to.equal(4);
+  // });
 
   
 
