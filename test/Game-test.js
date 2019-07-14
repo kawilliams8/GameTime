@@ -18,8 +18,6 @@ import Game from '../src/Game.js';
 describe('Game', () => {
 	let player1, player2, turn, survey, round, game, fullTurn, fullRound;
 	beforeEach(() => {
-      player1 = new Player('Djavan');
-      player2 = new Player('Katie');
       survey = [
       { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' }, 
       { answer: 'Beer', respondents: 67, surveyId: 1 }, 
@@ -37,5 +35,31 @@ describe('Game', () => {
 		expect(Game).to.be.a('function');
 		expect(game).to.be.an.instanceof(Game);
   });
-  
+
+  it('should pass survey data', () => {
+    expect(game.data).to.deep.equal(data);
+  });
+
+  it('should select a survey', () => {
+    expect(game.currentSurvey).to.deep.equal(survey);
+  });
+
+  it('should only select unused surveys', () => {
+    let surveyCheck = !game.usedSurveys.includes(currentSurvey.id);
+    expect(surveyCheck).to.equal(true);
+  });
+
+  it('should instantiate players', () => {
+    let player1 = game.startGame('Djavan', 'Katie');
+    expect(player1).to.be.an.instanceOf(Player);
+    expect(player1.name).to.equal('Djavan');
+  });
+
+  it('should instantiate a FullRound', () => {
+    let player1 = game.startGame('Djavan', 'Katie');
+    exp
+    ect(player1).to.be.an.instanceOf(Player);
+    expect(player2.name).to.equal('Katie');
+  });
+
 })

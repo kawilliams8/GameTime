@@ -1,13 +1,16 @@
+import Player from '../src/Player.js';
+
 class Game {
 	constructor(data) {
 		this.data = data;
 		this.roundCounter = 1;
 		this.usedSurveys = [];
-
-		console.log('new game!')
-
+		this.currentSurvey; 
 	}
-	startGame() {
+	startGame(playerOne, playerTwo) {
+		let player1 = new Player(playerOne);
+		let player2 = new Player(playerTwo);
+		return player2, player1
 	// choose our survey and update used surveys
 	// instantiate the new players
 	// start our first full round with players and survey
