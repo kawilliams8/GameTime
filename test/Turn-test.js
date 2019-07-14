@@ -3,7 +3,9 @@ const expect = chai.expect;
 
 import Player from '../src/Player.js';
 import Turn from '../src/Turn.js';
-import FullTurn from '../src/Turn.js';
+import FullTurn from '../src/FullTurn.js';
+import Round from '../src/Round.js';
+import FullRound from '../src/FullRound.js';
 // import spies from 'chai-spies';
 // import DOMupdates from '../src/DOMupdates.js';
 // chai.use(spies);
@@ -22,7 +24,7 @@ describe('FullTurn', () => {
       { answer: 'Donuts', respondents: 24, surveyId: 1 },
       { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
     ]
-      turn = new FullTurn(player2, survey)
+      turn = new FullTurn(player1, survey)
 	});
 
 	it('should be a function that instantiates a player', () => {

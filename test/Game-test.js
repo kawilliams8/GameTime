@@ -1,9 +1,13 @@
 import chai from 'chai';
 const expect = chai.expect;
 
+import data from '../src/Data.js'
 import Player from '../src/Player.js';
-import FullRound from '../src/Round.js'
-import Game from '../src/Game.js'
+import Turn from '../src/Turn.js';
+import FullTurn from '../src/FullTurn.js';
+import Round from '../src/Round.js';
+import FullRound from '../src/FullRound.js'
+import Game from '../src/Game.js';
 // import spies from 'chai-spies';
 // import DOMupdates from '../src/DOMupdates.js';
 // chai.use(spies);
@@ -12,7 +16,7 @@ import Game from '../src/Game.js'
 // chai.spy.on(DOMupdates, 'updateLater', () => true);
 
 describe('Game', () => {
-	let player1, player2, turn, survey, round;
+	let player1, player2, turn, survey, round, game, fullTurn, fullRound;
 	beforeEach(() => {
       player1 = new Player('Djavan');
       player2 = new Player('Katie');
@@ -22,9 +26,11 @@ describe('Game', () => {
       { answer: 'Donuts', respondents: 24, surveyId: 1 },
       { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
     ];
-      turn = new Turn(player2, survey);
-      round = new Round(player1, player2, survey);
-      game = new Game(data);
+    game = new Game(data);
+    round = new Round(player1, player2, survey, player1);
+    fullRound = new FullRound();
+    turn = new Turn(player2, survey);
+    fullTurn = new FullTurn();
 	});
 
 	it('should be a function that instantiates a game', () => {
