@@ -7,15 +7,24 @@ class FullTurn extends Turn {
       this.correctGuesses = correctGuesses;
     }
   
-    checkAnswer() { // this will be called by the submission button
-      // if the guess was correct
-      // push guess into the this.correctGuesses array
-      // invokes updateScore()
+    checkGuess(guess) {
+      let answers = this.currentSurvey.map(object => {
+        return object.answer;
+      }).filter(answer => answer !== undefined);
+      if (answers.includes(guess)) {
+        this.correctGuesses.push(guess)
+        this.updateScore(guess);
+      }
       // if guess wasn't correct, return and instantiate a new turn w/other player
-      // DOMupdates to flip answer on gameboard
     }
     
-    updateScore() {
+    updateScore(guess) {
+      let points = this.currentSurvey.find(answer => {
+        return answer.answer === guess;
+      }).respondents;
+      this.currentPlayer.score += points;
+      console.log('turns current player:', this.currentPlayer);
+
       // get respondants amount
       // update score
       // DOMupdates with scores

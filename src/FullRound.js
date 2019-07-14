@@ -2,9 +2,9 @@ import Round from './Round.js'
 import FullTurn from './FullTurn.js';
 
 class FullRound extends Round {
-    constructor(playerOne, playerTwo, currentSurvey, startingPlayer) {
-      super(playerOne, playerTwo, currentSurvey, startingPlayer)
-      this.currentPlayer = super.startingPlayer;
+    constructor(game, startingPlayer) {
+      super(game, startingPlayer)
+      this.currentPlayer = startingPlayer;
       this.correctGuesses = [];
       this.currentTurn;
     }

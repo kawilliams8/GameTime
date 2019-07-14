@@ -11,14 +11,8 @@ import Game from '../src/Game.js';
 // chai.spy.on(DOMupdates, 'updateLater', () => true);
 
 describe('Game', () => {
-	let survey, game;
+	let game;
 	beforeEach(() => {
-    survey = [
-      { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' }, 
-      { answer: 'Beer', respondents: 67, surveyId: 1 }, 
-      { answer: 'Donuts', respondents: 24, surveyId: 1 },
-      { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
-    ];
     game = new Game(data);
 	});
 

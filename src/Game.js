@@ -7,8 +7,8 @@ class Game {
 		this.roundCounter = 1;
 		this.usedSurveys = [];
 		this.currentSurvey = []
-		this.playerOne = new Player();
-		this.playerTwo = new Player();
+		this.playerOne = new Player('Djavan');
+		this.playerTwo = new Player('Katie');
 		this.currentRound;
 	}
 
@@ -42,6 +42,7 @@ class Game {
 	}
 
 	startFullRound() {
+		// console.log('game current player:', this.returnStartingPlayer())
 		this.currentRound = new FullRound(this, this.returnStartingPlayer());
 		this.currentRound.roundType = 'Full';
 	}
