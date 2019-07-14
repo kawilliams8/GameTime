@@ -25,35 +25,31 @@ class Game {
 	}
 
 	startGame() {
+		this.selectSurvey();
+		this.startFullRound();
 	// start our first full round with players and survey
 	// round.beginRound()
 	}
 
 	startNextRound() {
-	// determineFullorFast?
-	// assign this.currentRoundType to "full" or "fast"
-	// select the survey
-  // if full startFullRound(survey);
-	// if fast startFastRound(survey);
+		this.currentSurvey = [];
+		this.selectSurvey();
+		this.chooseFullorFast();
 	}
 
 	chooseFullorFast() {
 		this.roundCounter < 3 ? this.startFullRound() : this.startFastRound();
-	// is the game tied?
+		// is the game tied?
 	}
 
 	startFullRound() {
 		this.currentRound = new FullRound(this.playerOne, this.playerTwo, this.currentSurvey, this.returnStartingPlayer());
-		// instantiates a new round
 		this.currentRound.roundType = 'Full';
-	// starts a full round using fullround.beginRound()
 	}
 
 	startFastRound() {
 		this.currentRound = new FastRound(this.playerOne, this.playerTwo, this.currentSurvey, this.returnStartingPlayer());
-	// instantiates a new round
 		this.currentRound.roundType = 'Fast';
-	// starts a fast round using fastround.beginRound()
 	}
 
 	returnStartingPlayer() {

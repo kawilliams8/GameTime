@@ -57,10 +57,17 @@ describe('Game', () => {
     expect(game.currentRound.roundType).to.equal('Full')
   });
 
-  // it('should instantiate a FullRound', () => {
-  //   game.startGame();
-  //   expect(round.currentSurvey.length).to.equal(4);
-  // });
+  it('should create the first FullRound', () => {
+    game.startGame();
+    expect(game.currentRound.roundType).to.equal('Full');
+  });
+
+  it('should start a round of the correct type', () => {
+    game.startGame();
+    game.startNextRound();
+    expect(game.usedSurveys.length).to.equal(2);
+    expect(game.currentRound.roundType).to.equal('Full');
+  });
 
   
 
