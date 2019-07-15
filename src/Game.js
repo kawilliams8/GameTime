@@ -1,14 +1,15 @@
 import Player from '../src/Player.js';
 import FullRound from './FullRound.js';
+import DOMupdates from './DOMupdates.js';
 
 class Game {
-	constructor(data, playerOne) {
+	constructor(data) {
 		this.data = data;
 		this.roundCounter = 1;
 		this.usedSurveys = [];
 		this.currentSurvey = []
-		this.playerOne = new Player('Djavan');
-		this.playerTwo = new Player('Katie');
+		this.playerOne = new Player('');
+		this.playerTwo = new Player('');
 		this.currentRound;
 	}
 
@@ -27,6 +28,7 @@ class Game {
 	startGame() {
 		this.selectSurvey();
 		this.startFullRound();
+		console.log(this)
 	// round.beginRound()
 	}
 

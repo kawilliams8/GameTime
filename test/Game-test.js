@@ -3,12 +3,11 @@ const expect = chai.expect;
 
 import data from '../src/Data.js'
 import Game from '../src/Game.js';
-// import spies from 'chai-spies';
-// import DOMupdates from '../src/DOMupdates.js';
-// chai.use(spies);
-// import data from '../src/Data.js';
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, 'updateLater', () => true);
+chai.spy.on(DOMupdates, ['sample'], () => true);
 
 describe('Game', () => {
 	let game;
