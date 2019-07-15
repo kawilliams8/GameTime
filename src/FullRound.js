@@ -1,5 +1,6 @@
 import Round from './Round.js'
 import FullTurn from './FullTurn.js';
+import DOMupdates from './DOMupdates.js';
 
 class FullRound extends Round {
     constructor(game, startingPlayer) {
@@ -11,6 +12,7 @@ class FullRound extends Round {
   
     beginRound() {
       this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey);
+      DOMupdates.displayCurrentTurn((this.currentPlayer.name), this.currentSurvey[0].question);
     }
   
     continueRound() {

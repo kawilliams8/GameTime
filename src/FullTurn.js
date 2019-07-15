@@ -1,5 +1,6 @@
 import Turn from './Turn.js'
 import Game from './Game.js';
+import DOMupdates from './DOMupdates.js';
 
 class FullTurn extends Turn {
     constructor(currentRound, currentPlayer, currentSurvey, correctGuesses = []) {
@@ -38,6 +39,7 @@ class FullTurn extends Turn {
         return answer.answer === guess;
       }).respondents;
       this.currentPlayer.score += points;
+      DOMupdates.updateScore(this.currentPlayer);
       if (this.checkEndOfRound()) {
         this.currentRound.endRound();
       };

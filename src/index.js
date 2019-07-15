@@ -35,3 +35,7 @@ $('.main-button__submit-name').on('click', (e) => {
 $('.main-button__start-game').on('click', () => {
   DOMupdates.startGame(game);
 });
+
+$('.main-button__submit-guess').on('click', () => {
+  DOMupdates.turnCheckGuess(game);
+})
