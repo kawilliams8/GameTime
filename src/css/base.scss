@@ -9,10 +9,7 @@ $font: 'VT323', monospace;
 
 body {
   background-color: $black;
-  
-  .test {
-    color: $yellow;
-    font-family: $font;
-    font-size: px;
-  }
+  color: $yellow;
+  font-family: $font;
+  font-size: 36px;
 }
