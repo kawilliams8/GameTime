@@ -12,12 +12,10 @@ import Round from '../src/Round.js';
 import FullRound from '../src/FullRound.js';
 import Game from '../src/Game.js';
 
-let game = new Game(data)
+let game = new Game(data);
 
 function createPlayers() {
-  let playerOneName = $(playerInput1).text();
-  let playerTwoName = $(playerInput2).text();
-  player1 = new Player(playerOneName);
-  player2 = new Player(playerTwoName);
+  let playerOneName = $('.main-input__player-one').text();
+  let playerTwoName = $('.main-input__player-two').text();
   game.selectSurvey();
 }
