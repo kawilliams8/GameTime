@@ -28,7 +28,7 @@ describe('FullTurn', () => {
   
   it('should receive information from Turn', () => {
     let answer1 = game.currentSurvey[1].answer;
-    expect(game.currentRound.currentTurn.currentPlayer.name).to.equal('Djavan');
+    expect(game.currentRound.currentTurn.currentPlayer.name).to.equal('');
     expect(game.currentRound.currentTurn.currentSurvey[1].answer).to.equal(answer1);
   });
 
