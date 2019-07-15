@@ -5,10 +5,64 @@
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1 class="test">THIS IS THE H1</h1>;
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <main class="main">
+      <section class="main-splash__hide">
+        <img class="main-image__hide">
+      </section>
+      <section class="main-splash__hide main-inputs">
+        <input class="main-input__hide main-input__player-one" type="text">
+        <input class="main-input__hide main-input__player-two" type="text">
+        <button class="main-button__hide main-button__submit-name">SUBMIT NAMES</button>
+      </section>
+      <section class="main-container__scoreboard">
+        <img class="main-image__scoreboard">
+        <div class="main-div__timer">
+          <span class="main-span__timer">:00</span>
+        </div>
+        <div class="main-div__player-one-score">
+          <span class="main-span__player-one-score">0</span>
+        </div>
+        <table class="main-table__responses">
+          <tbody>
+            <tr class="main-tr__top-response">
+              <td class="main-tr__top-answer"></td>
+              <td class="main-tr__top-respondents"></td>
+            </tr>
+            <tr class="main-tr__middle-response">
+              <td class="main-tr__middle-answer"></td>
+              <td class="main-tr__middle-respondents"></td>
+            </tr>
+            <tr class="main-tr__bottom-response">
+                <td class="main-tr__bottom-answer"></td>
+                <td class="main-tr__bottom-respondents"></td>
+            </tr>
+            <tr class="main-tr__empty">
+            </tr>
+            <tr class="main-tr__empty">
+            </tr>
+          </tbody>
+        </table>
+        <div class="main-div__player-two-score">
+          <span class="main-span__player-two-score">0</span>
+        </div>
+        <p class="main-p__question-prompt">
+          <span class="main-span__current-player">CURRENT PLAYER: </span> QUESTION GOES HERE:
+        </p>
+      </section>
+      <section class="main-section__player-images">
+        <img class="main-image__player-one">
+        <span class="main-span__player-one-name">PLAYER 1</span>
+        <img class="main-image__player-two">
+        <span class="main-span__player-two-name">PLAYER 2</span>
+      </section>
+      <section class="main-section__guess-input">
+        <input class="main-input__guess-input" type="text">
+      </section>
+      <section class="main-section__game-buttons">
+          <button class="main-button__start-game">START GAME</button>
+          <button class="main-button__reset-game">RESET GAME</button>
+          <button class="main-button__submit-guess">SUBMIT GUESS</button>
+      </section>
+    </main>
   </body>
 </html>
