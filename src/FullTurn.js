@@ -14,10 +14,21 @@ class FullTurn extends Turn {
         return object.answer;
       }).filter(answer => answer !== undefined);
       if (answers.includes(guess) && !this.correctGuesses.includes(guess)) {
+        //good guess, original guess
         this.correctGuesses.push(guess);
         this.updateScore(guess);
+      } else if (answers.includes(guess) && this.correctGuesses.includes(guess)) {
+        // good guess, repeat guess
+        this.currentRound.correctGuesses = this.correctGuesses;
+        this.currentRound.continueRound();
+      } else if (!answers.includes(guess)){
+        // bad guess
+        // this.currentRound.endRound();
+        this.currentRound.correctGuesses = this.correctGuesses;
+        this.currentRound.continueRound();
       } else {
-        this.currentRound.endRound();
+        console.log('new checkGuess outcome');
+        //Goal is delete this else eventually
       }
       // if guess wasn't correct, return and instantiate a new turn w/other player
     }
@@ -27,20 +38,13 @@ class FullTurn extends Turn {
         return answer.answer === guess;
       }).respondents;
       this.currentPlayer.score += points;
-      if (this.checkEndOfTurn()) {
-        
+      if (this.checkEndOfRound()) {
+        this.currentRound.endRound();
       };
-
-      // get respondants amount
-      // update score
-      // DOMupdates with scores
     }
   
-    checkEndOfTurn() {
+    checkEndOfRound() {
       return this.correctGuesses.length === 3;
-      // if this.correctGuesses.length === 3, new turn;
-      // DOMupdates to notify if turn is over, maybe as the red x
-      // DOMupdates to notify if it's still your turn 
     }
   }
 

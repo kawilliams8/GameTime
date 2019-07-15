@@ -15,9 +15,9 @@ import FullTurn from '../src/FullTurn.js';
 describe('FullTurn', () => {
 	let game;
 	beforeEach(() => {
-     game = new Game(data);
-     game.startGame();
-     game.currentRound.beginRound();
+    game = new Game(data);
+    game.startGame();
+    game.currentRound.beginRound();
     //  console.log(game.currentRound.currentTurn);
 	});
 
@@ -41,9 +41,27 @@ describe('FullTurn', () => {
 
   it('should receive and check a previously used correct guess', () => {
     let answer1 = game.currentSurvey[1].answer;
-    game.currentRound.currentTurn.correctGuesses = [answer1, answer1, answer1];
-    console.log(game.currentRound.currentTurn)
-    game.currentRound.currentTurn.checkGuess(answer1);
+    let answer2 = game.currentSurvey[2].answer;
+    let answer3 = game.currentSurvey[3].answer;
+    game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
+    game.currentRound.currentTurn.checkGuess(answer2);
+  });
+
+  it('should receive and check an incorrect guess', () => {
+    let answer1 = game.currentSurvey[1].answer;
+    let answer2 = game.currentSurvey[2].answer;
+    game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
+    game.currentRound.currentTurn.checkGuess('wrong');
+    expect(game.currentRound.currentPlayer).to.deep.equal(game.playerTwo);
+  });
+
+  it('should end the round if all answers have been guessed', () => {
+    let answer1 = game.currentSurvey[1].answer;
+    let answer2 = game.currentSurvey[2].answer;
+    let answer3 = game.currentSurvey[3].answer;
+    game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
+    game.currentRound.currentTurn.checkGuess(answer3);
+    expect(game.roundCounter).to.equal(2);
   });
 })
 

@@ -14,11 +14,15 @@ class FullRound extends Round {
     }
   
     continueRound() {
-      //if this.correctGuesses.length !== 3 create new turn. If false, invoke endRound.
+      if (this.currentPlayer === this.playerOne) {
+        this.currentPlayer = this.playerTwo;
+      }
+      this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey);
+      // If false, invoke endRound.
     }
   
     endRound() {
-      console.log('This is the end!')
+      this.game.roundCounter++;
       //increment Game.roundCounter & stop instantiating turns
       //invoke game to start next round
     }
