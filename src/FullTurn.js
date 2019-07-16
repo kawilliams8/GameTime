@@ -14,6 +14,7 @@ class FullTurn extends Turn {
       let answers = this.currentSurvey.map(object => {
         return object.answer;
       }).filter(answer => answer !== undefined);
+      console.log(this.correctGuesses)
       if (answers.includes(guess) && !this.correctGuesses.includes(guess)) {
         //good guess, original guess
         this.correctGuesses.push(guess);

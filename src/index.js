@@ -38,4 +38,5 @@ $('.main-button__start-game').on('click', () => {
 
 $('.main-button__submit-guess').on('click', () => {
   DOMupdates.turnCheckGuess(game);
+  $('.main-input__guess-input').val('');
 })
