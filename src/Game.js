@@ -47,6 +47,7 @@ class Game {
 		// console.log('game current player:', this.returnStartingPlayer())
 		this.currentRound = new FullRound(this, this.returnStartingPlayer());
 		this.currentRound.roundType = 'Full';
+		this.currentRound.beginRound();
 	}
 
 	startFastRound() {

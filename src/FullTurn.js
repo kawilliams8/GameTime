@@ -1,5 +1,6 @@
 import Turn from './Turn.js'
 import Game from './Game.js';
+import DOMupdates from './DOMupdates.js';
 
 class FullTurn extends Turn {
     constructor(currentRound, currentPlayer, currentSurvey, correctGuesses = []) {
@@ -13,6 +14,7 @@ class FullTurn extends Turn {
       let answers = this.currentSurvey.map(object => {
         return object.answer;
       }).filter(answer => answer !== undefined);
+      console.log(this.correctGuesses)
       if (answers.includes(guess) && !this.correctGuesses.includes(guess)) {
         //good guess, original guess
         this.correctGuesses.push(guess);
@@ -38,6 +40,7 @@ class FullTurn extends Turn {
         return answer.answer === guess;
       }).respondents;
       this.currentPlayer.score += points;
+      DOMupdates.updateScore(this.currentPlayer);
       if (this.checkEndOfRound()) {
         this.currentRound.endRound();
       };
