@@ -27,11 +27,11 @@ main {
 .main-container__scoreboard {
   display: grid;
   grid-template-columns: 182px 182px 182px 182px 182px 182px 182px;
-  grid-template-rows: 114px 114px 114px 114px 114px 114px 114px;
+  grid-template-rows: 66px 197px 21px 150px 155px 155px 50px;
   grid-template-areas:
   ". . . timer . . ."
-  ". . gameboard gameboard gameboard . ."
-  ". score1 . . . score2 ."
+  ". score1 gameboard gameboard gameboard score2 ."
+  ". . . . . . ."
   ". question question question question question ."
   " . players players players players players buttons"
   ". players players players players players buttons"
