@@ -28,8 +28,8 @@ const DOMupdates = {
     let currentName = player.name;
     let playerOne = $('.main-span__player-one-name').text();
     let playerTwo = $('.main-span__player-two-name').text();
-    let scoreOne = $('.main-span__player-one-score');
-    let scoreTwo = $('.main-span__player-two-score');
+    let scoreOne = $('.main-h2__player-one-score');
+    let scoreTwo = $('.main-h2__player-two-score');
     currentName === playerOne ? scoreOne.text(player.score) : scoreTwo.text(player.score);
   }
 }

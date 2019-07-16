@@ -18,7 +18,6 @@ describe('FullTurn', () => {
     game = new Game(data);
     game.startGame();
     game.currentRound.beginRound();
-    //  console.log(game.currentRound.currentTurn);
 	});
 
 	it('should be a function that instantiates a player', () => {
