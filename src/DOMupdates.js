@@ -9,7 +9,8 @@ const DOMupdates = {
 		$('.main-button__submit-name').hide();
 	},
 
-	sample() {
+	addBoardImage() {
+		$('.main').addClass('game-board__backgroundImage');
 	}
 }
 
