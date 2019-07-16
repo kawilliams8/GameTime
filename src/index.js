@@ -1,9 +1,9 @@
 
 import $ from 'jquery';
-
 import './css/base.scss';
+import './images/family-feud_board.gif';
+import './images/family-feud_splash.gif';
 
-import './images/turing-logo.png';
 import data from '../src/Data.js';
 import Player from '../src/Player.js';
 import Turn from '../src/Turn.js';
@@ -30,6 +30,7 @@ $('.main-button__submit-name').on('click', (e) => {
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
   $('.main-span__player-two-name').text(game.playerTwo.name);
+  DOMupdates.addBoardImage();
 });
 
 $('.main-button__start-game').on('click', () => {

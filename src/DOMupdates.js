@@ -9,8 +9,9 @@ const DOMupdates = {
 		$('.main-button__submit-name').hide();
 	},
 
-	sample() {
-  },
+	addBoardImage() {
+		$('.main').addClass('game-board__backgroundImage');
+	},
   
   displayCurrentTurn(currentPlayerName, question) {
     $('.main-span__current-player').text(`${currentPlayerName}: `);
@@ -30,7 +31,6 @@ const DOMupdates = {
     let scoreOne = $('.main-span__player-one-score');
     let scoreTwo = $('.main-span__player-two-score');
     currentName === playerOne ? scoreOne.text(player.score) : scoreTwo.text(player.score);
-
   }
 }
 
