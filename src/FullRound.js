@@ -22,7 +22,7 @@ class FullRound extends Round {
         this.currentPlayer = this.playerOne;
       }
       console.log(this.currentPlayer)
-      this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey);
+      this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey, this.correctGuesses);
       DOMupdates.displayCurrentTurn((this.currentPlayer.name), this.currentSurvey[0].question);
       // If false, invoke endRound.
     }

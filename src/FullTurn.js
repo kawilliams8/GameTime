@@ -42,6 +42,7 @@ class FullTurn extends Turn {
       this.currentPlayer.score += points;
       DOMupdates.updateScore(this.currentPlayer);
       if (this.checkEndOfRound()) {
+        console.log('hello');
         this.currentRound.endRound();
       };
     }
