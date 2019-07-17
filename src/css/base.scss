@@ -16,6 +16,41 @@ body {
   font-size: 49px;
 }
 
+//////////////////Splash page styles/////////////////
+.main-inputs {
+  margin: auto;
+  text-align: center;
+}
+
+.main-label__player-one,
+.main-label__player-two {
+  font-size: 49px;
+  line-height: 50px;
+}
+
+.main-div__player-one-field, 
+.main-div__player-two-field {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.main-input__hide {
+  color: $black;
+  background-color:$yellow;
+  border: 3px dotted $red;
+  font-family: $font;
+  font-size: 28px;
+  height: 36px;
+  margin-left: 10px;
+  width: 250px;
+}
+
+.splash-image__size {
+  width: 70%;
+}
+
+/////////////////////Main game page styles/////////////////
 main {
   background-color: $black;
   color: $yellow;
@@ -36,10 +71,6 @@ main {
   " . players players players players players buttons"
   ". players players players players players buttons"
   ". input input input input input buttons";  
-}
-
-.splash-image__size {
-  width: 100%;
 }
 
 .game-board__backgroundImage {
@@ -70,7 +101,7 @@ main {
 }
 
 .main-h2__player-one-score {
-  margin: 44px 40px 0px 110px;
+  margin: 55px 40px 0px 110px;
 }
 
 .main-div__player-two-score,
@@ -80,7 +111,7 @@ main {
 }
 
 .main-h2__player-two-score {
-  margin: 44px 0px 0px -40px;
+  margin: 55px 0px 0px -40px;
 }
 
 .main-div__questions {
