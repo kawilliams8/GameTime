@@ -8,10 +8,6 @@ const DOMupdates = {
 		$('.main-input__player-two').hide();
 		$('.main-button__submit-name').hide();
 	},
-
-	addBoardImage() {
-		$('.main').addClass('game-board__backgroundImage');
-	},
   
   displayCurrentTurn(currentPlayerName, question) {
     $('.main-span__current-player').text(`${currentPlayerName}: `);
