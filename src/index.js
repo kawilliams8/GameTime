@@ -1,7 +1,7 @@
 
 import $ from 'jquery';
 import './css/base.scss';
-import './images/family-feud_board.gif';
+import './images/family-feud_board.png';
 import './images/family-feud_splash.png';
 
 // import data from '../src/Data.js';
@@ -25,8 +25,6 @@ fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
 $(document).ready(() => {
   $('.board').hide();
   //Things to happen on pageload
-  //Load background image
-  //Make splash appear
 })
 
 $('.main-button__submit-name').on('click', (e) => {
@@ -37,8 +35,6 @@ $('.main-button__submit-name').on('click', (e) => {
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
   $('.main-span__player-two-name').text(game.playerTwo.name);
-  DOMupdates.addBoardImage();
-  // console.log(data)
 });
 
 $('.main-button__start-game').on('click', () => {

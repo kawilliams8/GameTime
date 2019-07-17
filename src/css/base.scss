@@ -48,7 +48,6 @@ body {
 
 .splash-image__size {
   width: 100%;
-  
 }
 
 /////////////////////Main game page styles/////////////////
@@ -74,9 +73,9 @@ main {
   ". input input input input input buttons";  
 }
 
-.game-board__backgroundImage {
+.main-image__scoreboard {
   background-color: $black;
-  background-image: url('../images/family-feud_board.gif');
+  background-image: url('../images/family-feud_board.png');
   height: 800px;
 }
 
