@@ -36,6 +36,7 @@ class Game {
 		this.currentSurvey = [];
 		this.selectSurvey();
 		this.chooseFullorFast();
+		DOMupdates.clearBoard();
 	}
 
 	chooseFullorFast() {

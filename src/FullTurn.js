@@ -40,7 +40,9 @@ class FullTurn extends Turn {
         return answer.answer === guess;
       }).respondents;
       this.currentPlayer.score += points;
-      DOMupdates.updateScore(this.currentPlayer);
+      let location = this.fillGameBoard(guess)
+      DOMupdates.surveySays(location, guess, points);
+      DOMupdates.updateScore(this.currentPlayer.name, this.currentPlayer.score);
       if (this.checkEndOfRound()) {
         console.log('hello');
         this.currentRound.endRound();
@@ -49,6 +51,17 @@ class FullTurn extends Turn {
   
     checkEndOfRound() {
       return this.correctGuesses.length === 3;
+    }
+
+    fillGameBoard(guess) {
+      let index = this.currentSurvey.findIndex(answer => answer.answer === guess);
+      if (index === 1) {
+        return 'top';
+      } else if (index === 2) {
+        return 'middle';
+      } else {
+        return 'bottom';
+      }
     }
   }
 

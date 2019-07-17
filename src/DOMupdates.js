@@ -16,7 +16,6 @@ const DOMupdates = {
   displayCurrentTurn(currentPlayerName, question) {
     $('.main-span__current-player').text(`${currentPlayerName}: `);
     $('.main-span__current-question').text(question);
-    console.log(currentPlayerName);
   },
 
   turnCheckGuess(game) {
@@ -24,13 +23,24 @@ const DOMupdates = {
     game.currentRound.currentTurn.checkGuess(guess);
   },
 
-  updateScore(player) {
-    let currentName = player.name;
-    let playerOne = $('.main-span__player-one-name').text();
-    let playerTwo = $('.main-span__player-two-name').text();
-    let scoreOne = $('.main-h2__player-one-score');
-    let scoreTwo = $('.main-h2__player-two-score');
-    currentName === playerOne ? scoreOne.text(player.score) : scoreTwo.text(player.score);
+  updateScore(name, score) {
+    let playerOneName = $('.main-span__player-one-name').text();
+    let playerTwoName = $('.main-span__player-two-name').text();
+    let playerOneScore = $('.main-h2__player-one-score');
+    let playerTwoScore = $('.main-h2__player-two-score');
+    name === playerOneName ? playerOneScore.text(score) : playerTwoScore.text(score);
+  },
+
+  surveySays(location, guess, points) {
+    $(`.main-tr__${location}-answer`).text(guess.toUpperCase()).css({'padding-left': '10px', 'background-color': 'black', 'width': '81.5%'})
+    $(`.main-tr__${location}-respondents`).text(points).css({'padding-left': '10px', 'background-color': 'black', 'border-left': '4px solid #fc5454'})
+  },
+
+  clearBoard() {
+    setTimeout(() => {
+      $('.td-answers').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'width': ''});
+      $('.td-respondents').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'border-left': ''});
+    }, 2000);
   }
 }
 
