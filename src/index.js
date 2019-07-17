@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import './css/base.scss';
 import './images/family-feud_board.gif';
-import './images/family-feud_splash.gif';
+import './images/family-feud_splash.png';
 
 // import data from '../src/Data.js';
 import Player from '../src/Player.js';
