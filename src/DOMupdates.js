@@ -53,6 +53,11 @@ const DOMupdates = {
       $('.player.two.turned').css('display', 'none');
     }
   },
+
+  wrongAnswerBuzzer() {
+    console.log('In the audio')
+    new Audio('sounds/Wrong_answer_buzzer.mp3').play();
+  },
 }
 
 export default DOMupdates;

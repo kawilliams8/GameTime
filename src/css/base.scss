@@ -14,6 +14,7 @@ body {
   background-color: $black;
   font-family: $font;
   font-size: 49px;
+  height: 100vh;
 }
 
 //////////////////Splash page styles/////////////////
@@ -209,6 +210,34 @@ main {
 
 .main-button__submit-guess {
   margin-left: -70px;
+}
+
+.main-section__player-images {
+  position: relative;
+}
+
+.main-span__player-one-name,
+.main-span__player-two-name {
+  color: $black;
+  font-size: 24px;
+  margin-top: 120px;
+  position: absolute;
+  z-index: 100;
+}
+
+.main-h3__player-one-name {
+  color: $black;
+  font-size: 36px;
+  margin-top: 10px;
+  margin-left: 90px;
+  width: 100px;
+}
+
+.main-h3__player-two-name {
+  margin-top: 10px;
+  margin-left: -70px;
+  color: $black;
+  font-size: 36px;
 }
 
 ::-webkit-input-placeholder{
