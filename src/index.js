@@ -20,12 +20,11 @@ import Game from '../src/Game.js';
 import DOMupdates from '../src/DOMupdates.js';
 
 //Fetch data
-let data;
 let game;
 
 fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
 .then(response => response.json())
-.then(dataset => data = dataset.data)
+.then(dataset => game = new Game(dataset.data))
 .catch(error => console.log(error))
 
 $(document).ready(() => {
@@ -36,7 +35,6 @@ $(document).ready(() => {
 $('.main-button__submit-name').on('click', (e) => {
   $('.splash').hide();
   $('.board').show();
-  game = new Game(data);
   game.playerOne.name = $('.main-input__player-one').val();
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);

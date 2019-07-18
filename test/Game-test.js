@@ -7,7 +7,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['sample'], () => true);
+chai.spy.on(DOMupdates, ['displayCurrentTurn', 'clearBoard'], () => true);
 
 describe('Game', () => {
 	let game;
@@ -41,12 +41,15 @@ describe('Game', () => {
   });
 
   it('should determine if a Full or Fast Round is needed', () => {
+    game.selectSurvey();
     game.chooseFullorFast();
     expect(game.currentRound.roundType).to.equal('Full')
+
   });
 
   it('should create the first FullRound', () => {
     game.startGame();
+    chai.spy.on(game.currentRound, 'beginRound', () => true)
     expect(game.currentRound.roundType).to.equal('Full');
   });
 
