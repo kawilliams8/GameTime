@@ -16,7 +16,7 @@ const DOMupdates = {
 
   turnCheckGuess(game) {
     let guess = $('.main-input__guess-input').val();
-    game.currentRound.currentTurn.checkGuess(guess);
+    game.currentRound.currentTurn.checkGuess(guess.toLowerCase());
   },
 
   updateScore(name, score) {

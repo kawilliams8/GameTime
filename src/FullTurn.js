@@ -11,9 +11,9 @@ class FullTurn extends Turn {
   }
 
   checkGuess(guess) {
-    let answers = this.currentSurvey.map(object => {
-      return object.answer;
-    }).filter(answer => answer !== undefined);
+    let answers = this.currentSurvey.filter(survey => survey.answer !== undefined).map(survey => {
+      return survey.answer.toLowerCase();
+    })
     if (answers.includes(guess) && !this.correctGuesses.includes(guess)) {
       //good guess, original guess
       this.correctGuesses.push(guess);
@@ -35,9 +35,11 @@ class FullTurn extends Turn {
   }
   
   updateScore(guess) {
-    let points = this.currentSurvey.find(answer => {
-      return answer.answer === guess;
-    }).respondents;
+    let points = this.currentSurvey.filter(survey => survey.answer !== undefined)
+      .find(survey => {
+        let answer = survey.answer.toLowerCase();
+        return answer === guess
+      }).respondents;
     this.currentPlayer.score += points;
     let location = this.fillGameBoard(guess)
     DOMupdates.surveySays(location, guess, points);
