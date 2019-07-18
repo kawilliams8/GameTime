@@ -5,11 +5,11 @@ import data from '../src/Data.js';
 import Game from '../src/Game.js';
 import FullRound from '../src/FullRound.js';
 import FullTurn from '../src/FullTurn.js';
-// import spies from 'chai-spies';
-// import DOMupdates from '../src/DOMupdates.js';
-// chai.use(spies);
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, 'updateLater', () => true);
+chai.spy.on(DOMupdates, 'updateLater', () => true);
 
 describe('Round', () => {
 	let game;
@@ -28,4 +28,17 @@ describe('Round', () => {
     expect(game.currentRound.currentTurn).to.be.an.instanceOf(FullTurn);
   });
   
-})
+});
+
+describe('FullRound', () => {
+  let game;
+  beforeEach(() => {
+    game = new Game(data);
+    game.startGame();
+  });
+  
+  it('should continue a full round', () => {
+    game.currentRound.continueRound();
+    expect(game.currentRound.roundType).to.equal('Full');
+  })
+});

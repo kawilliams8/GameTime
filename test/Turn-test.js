@@ -6,14 +6,15 @@ import Game from '../src/Game.js';
 import Turn from '../src/Turn.js';
 import FullTurn from '../src/FullTurn.js';
 
-// import spies from 'chai-spies';
-// import DOMupdates from '../src/DOMupdates.js';
-// chai.use(spies);
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, 'updateLater', () => true);
+chai.spy.on(DOMupdates, ['startGame', 'turnHeadsForPlayers', 'surveySays', 'updateScore'], () => true);
+
 
 describe('FullTurn', () => {
-	let game;
+  let game;
 	beforeEach(() => {
     game = new Game(data);
     game.startGame();
