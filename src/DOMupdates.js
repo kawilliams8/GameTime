@@ -47,7 +47,6 @@ const DOMupdates = {
       $('.player.two.face').css('display', 'none');
       $('.player.two.turned').css('display', 'block');
     } else {
-      console.log('in else')
       $('.player.one.face').css('display', 'none');
       $('.player.one.turned').css('display', 'block');
       $('.player.two.face').css('display', 'block');
