@@ -35,6 +35,10 @@ body {
   margin-bottom: 30px;
 }
 
+.main-div__player-two-field {
+  margin-bottom: 10px;
+}
+
 .main-input__hide {
   color: $black;
   background-color:$yellow;
@@ -163,6 +167,15 @@ main {
 
 .player.face {
   display: block;
+
+.main-button__submit-name {
+  background-color: $yellow;
+  border: 3px dotted $red; 
+  color: $black;
+  font-family: $font;
+  font-size: 36px;
+  height: 50px;
+  width: 200px;
 }
 
 .main-input__guess-input {
