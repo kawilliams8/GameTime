@@ -28,7 +28,7 @@ class Game {
 	startGame() {
 		this.selectSurvey();
 		this.startFullRound();
-		console.log(this)
+		// console.log(this)
 	// round.beginRound()
 	}
 
@@ -45,7 +45,6 @@ class Game {
 	}
 
 	startFullRound() {
-		// console.log('game current player:', this.returnStartingPlayer())
 		this.currentRound = new FullRound(this, this.returnStartingPlayer());
 		this.currentRound.roundType = 'Full';
 		this.currentRound.beginRound();

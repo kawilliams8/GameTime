@@ -157,3 +157,32 @@ main {
   height: 50px;
   width: 200px;
 }
+
+.main-input__guess-input {
+  color: $black;
+  background-color:$yellow;
+  border: 3px dotted $red;
+  font-family: $font;
+  font-size: 36px;
+  height: 60px;
+  width: 690px;
+  margin-left: 150px;
+}
+
+.main-button__start-game,
+.main-button__reset-game,
+.main-button__submit-guess {
+  color: $black;
+  background-color:$yellow;
+  border: 3px dotted $red;
+  font-family: $font;
+  font-size: 28px;
+  height: 60px;
+  width:200px;
+  margin: 25px;
+}
+
+::-webkit-input-placeholder{
+  color: $red;
+  opacity: 0.5;
+}
