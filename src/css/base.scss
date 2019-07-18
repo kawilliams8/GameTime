@@ -75,9 +75,9 @@ main {
   "score1 . gameboard gameboard gameboard . score2"
   ". . . . . . ."
   ". question question question question question ."
-  " . players players players players players buttons"
+  "leftbuttons input input input input input buttons"  
+  " leftbuttons players players players players players buttons"
   ". players players players players players buttons"
-  ". input input input input input buttons";  
 }
 
 .main-image__scoreboard {
@@ -129,6 +129,10 @@ main {
   grid-area: buttons;
 }
 
+.main-section__left-buttons {
+  grid-area: leftbuttons;
+}
+
 .main-section__guess-input {
   grid-area: input;
 }
@@ -136,7 +140,7 @@ main {
 .main-section__player-images {
   display: flex;
   grid-area: players;
-  margin-top: 100px;
+  // margin-top: 100px;
   justify-content: space-around;
 }
 
@@ -187,7 +191,7 @@ main {
   font-size: 36px;
   height: 60px;
   width: 690px;
-  margin-left: 150px;
+  margin: 25px 0px 0px 150px;
 }
 
 .main-button__start-game,
@@ -201,6 +205,10 @@ main {
   height: 60px;
   width:200px;
   margin: 25px;
+}
+
+.main-button__submit-guess {
+  margin-left: -70px;
 }
 
 ::-webkit-input-placeholder{
