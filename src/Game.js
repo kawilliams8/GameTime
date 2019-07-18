@@ -28,7 +28,7 @@ class Game {
 	startGame() {
 		this.selectSurvey();
 		this.startFullRound();
-		console.log(this)
+		console.log(this.currentRound.currentSurvey)
 	// round.beginRound()
 	}
 

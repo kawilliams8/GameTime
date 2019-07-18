@@ -3,6 +3,12 @@ import $ from 'jquery';
 import './css/base.scss';
 import './images/family-feud_board.png';
 import './images/family-feud_splash.png';
+import './images/player-one_face.png';
+import './images/player-one_turned.png';
+import './images/player-one_podium.png';
+import './images/player-two_face.png';
+import './images/player-two_turned.png';
+import './images/player-two_podium.png';
 
 // import data from '../src/Data.js';
 import Player from '../src/Player.js';

@@ -37,7 +37,23 @@ const DOMupdates = {
       $('.td-answers').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'width': ''});
       $('.td-respondents').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'border-left': ''});
     }, 2000);
-  }
+  },
+
+  turnHeadsForPlayers(name) {
+    let playerOneName = $('.main-span__player-one-name').text();
+    if (playerOneName === name) {
+      $('.player.one.face').css('display', 'block');
+      $('.player.one.turned').css('display', 'none');
+      $('.player.two.face').css('display', 'none');
+      $('.player.two.turned').css('display', 'block');
+    } else {
+      console.log('in else')
+      $('.player.one.face').css('display', 'none');
+      $('.player.one.turned').css('display', 'block');
+      $('.player.two.face').css('display', 'block');
+      $('.player.two.turned').css('display', 'none');
+    }
+  },
 }
 
 export default DOMupdates;
