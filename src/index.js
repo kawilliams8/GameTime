@@ -49,3 +49,11 @@ $('.main-button__submit-guess').on('click', () => {
   DOMupdates.turnCheckGuess(game);
   $('.main-input__guess-input').val('');
 })
+
+$('.main-section__guess-input').keypress((e) => {
+  var key = e.which;
+  if(key == 13 && game.currentSurvey.length > 0) {
+    DOMupdates.turnCheckGuess(game);
+    $('.main-input__guess-input').val('');
+   }
+ });   
