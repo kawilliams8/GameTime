@@ -9,6 +9,7 @@ import './images/player-one_podium.png';
 import './images/player-two_face.png';
 import './images/player-two_turned.png';
 import './images/player-two_podium.png';
+import './images/red-x.png';
 
 // import data from '../src/Data.js';
 import Player from '../src/Player.js';
@@ -35,6 +36,7 @@ $(document).ready(() => {
 $('.main-button__submit-name').on('click', (e) => {
   $('.splash').hide();
   $('.board').show();
+  $('.redx').hide();
   game.playerOne.name = $('.main-input__player-one').val();
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
