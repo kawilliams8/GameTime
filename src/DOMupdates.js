@@ -34,8 +34,8 @@ const DOMupdates = {
 
   clearBoard() {
     setTimeout(() => {
-      $('.td-answers').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'width': ''});
-      $('.td-respondents').delay(2000).text('').css({'padding-left': '', 'background-color': '', 'border-left': ''});
+      $('.td-answers').text('').css({'padding-left': '', 'background-color': '', 'width': ''});
+      $('.td-respondents').text('').css({'padding-left': '', 'background-color': '', 'border-left': ''});
     }, 2000);
   },
 
@@ -58,6 +58,13 @@ const DOMupdates = {
     console.log('In the audio')
     new Audio('sounds/Wrong_answer_buzzer.mp3').play();
   },
+
+  showRedX() {
+    $('.redx').show();
+    setTimeout(() => {
+      $('.redx').hide();
+    }, 2000);
+  }
 }
 
 export default DOMupdates;

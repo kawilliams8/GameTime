@@ -244,3 +244,12 @@ main {
   color: $red;
   opacity: 0.5;
 }
+
+.redx {
+  grid-area: gameboard;
+  margin: 25px auto 0px auto;
+
+  img {
+    height: 150px;
+  }
+}

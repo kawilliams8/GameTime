@@ -20,11 +20,13 @@ class FullTurn extends Turn {
       this.updateScore(guess);
     } else if (answers.includes(guess) && this.correctGuesses.includes(guess)) {
       // good guess, repeat guess
+      DOMupdates.showRedX();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
     } else if (!answers.includes(guess)){
       // bad guess
       // this.currentRound.endRound();
+      DOMupdates.showRedX();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
     } else {
