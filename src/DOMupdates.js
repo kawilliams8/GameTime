@@ -54,13 +54,17 @@ const DOMupdates = {
     }
   },
 
+  wrongAnswerBuzzer() {
+    console.log('In the audio')
+    new Audio('sounds/Wrong_answer_buzzer.mp3').play();
+  },
+
   showRedX() {
     $('.redx').show();
     setTimeout(() => {
       $('.redx').hide();
     }, 2000);
   }
-
 }
 
 export default DOMupdates;

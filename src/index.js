@@ -41,6 +41,8 @@ $('.main-button__submit-name').on('click', (e) => {
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
   $('.main-span__player-two-name').text(game.playerTwo.name);
+  $('.main-h3__player-one-name').text(game.playerOne.name)
+  $('.main-h3__player-two-name').text(game.playerTwo.name);
 });
 
 $('.main-button__start-game').on('click', () => {
