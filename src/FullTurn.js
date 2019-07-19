@@ -24,14 +24,12 @@ class FullTurn extends Turn {
       this.currentRound.continueRound();
     } else if (!answers.includes(guess)){
       // bad guess
-      // this.currentRound.endRound();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
     } else {
       console.log('new checkGuess outcome');
       //Goal is delete this else eventually
     }
-    // if guess wasn't correct, return and instantiate a new turn w/other player
   }
   
   updateScore(guess) {

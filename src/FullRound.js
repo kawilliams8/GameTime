@@ -25,14 +25,11 @@ class FullRound extends Round {
     this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey, this.correctGuesses);
     DOMupdates.displayCurrentTurn((this.currentPlayer.name), this.currentSurvey[0].question);
     DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
-    // If false, invoke endRound.
   }
 
   endRound() {
     this.game.roundCounter++;
     this.game.startNextRound();
-    //increment Game.roundCounter & stop instantiating turns
-    //invoke game to start next round
   }
 }
 export default FullRound;
