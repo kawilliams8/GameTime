@@ -251,5 +251,7 @@ main {
 
   img {
     height: 150px;
+    position: relative;
+    z-index: 5;
   }
 }
