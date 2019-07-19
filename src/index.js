@@ -33,6 +33,8 @@ $('.main-button__submit-name').on('click', (e) => {
   $('.splash').hide();
   $('.board').show();
   $('.redx').hide();
+  $('.main-button__submit-guess').hide();
+  $('.main-button__reset-game').hide();
   game.playerOne.name = $('.main-input__player-one').val();
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
@@ -43,6 +45,8 @@ $('.main-button__submit-name').on('click', (e) => {
 
 $('.main-button__start-game').on('click', () => {
   DOMupdates.startGame(game);
+  $('.main-button__submit-guess').show();
+  $('.main-button__reset-game').show();
 })
 
 $('.main-button__submit-guess').on('click', () => {
