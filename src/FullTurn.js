@@ -15,6 +15,7 @@ class FullTurn extends Turn {
     })
     if (answers.includes(guess) && !this.correctGuesses.includes(guess)) {
       //good guess, original guess
+      DOMupdates.correctAnswerDing();
       this.correctGuesses.push(guess);
       this.updateScore(guess);
     } else if (answers.includes(guess) && this.correctGuesses.includes(guess)) {
@@ -26,6 +27,7 @@ class FullTurn extends Turn {
       // bad guess
       // this.currentRound.endRound();
       DOMupdates.showRedX();
+      DOMupdates.wrongAnswerBuzzer();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
     } else {
