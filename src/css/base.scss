@@ -6,6 +6,7 @@ $font: 'VT323', monospace;
 
 //Use only the following font-sizes, in pixels:
 //36, 49, 65, 87, 116
+
 * {
   // border: 1px solid blanchedalmond;
   box-sizing: border-box;
@@ -126,6 +127,7 @@ main {
   grid-area: question;
 }
 
+/////////////////////Main game buttons and input/////////////////
 .main-section__game-buttons {
   grid-area: buttons;
 }
@@ -138,25 +140,19 @@ main {
   grid-area: input;
 }
 
+.welcomeCenter {
+  border: 8px dotted $red;
+  font-size: 49px;
+  margin: 0 225px;
+  text-align: center;
+}
+
+/////////////////////Main game player characters/////////////////
 .main-section__player-images {
   display: flex;
   grid-area: players;
   // margin-top: 100px;
   justify-content: space-around;
-}
-
-.main-table__responses {
-  border: none;
-  border-collapse: collapse;
-}
-
-.tr {
-  border: 2px solid $red;
-  height: 64px;
-}
-
-.main-tr__middle-response {
-  margin: 0;
 }
 
 .player.one, 
@@ -172,6 +168,21 @@ main {
 
 .player.face {
   display: block;
+}
+
+/////////////////////Gameboard survey responses/////////////////
+.main-table__responses {
+  border: none;
+  border-collapse: collapse;
+}
+
+.tr {
+  border: 2px solid $red;
+  height: 64px;
+}
+
+.main-tr__middle-response {
+  margin: 0;
 }
 
 .main-button__submit-name {
