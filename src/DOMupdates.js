@@ -55,15 +55,18 @@ const DOMupdates = {
   },
 
   wrongAnswerBuzzer() {
-    console.log('In the audio')
-    new Audio('sounds/Wrong_answer_buzzer.mp3').play();
+    new Audio('https://retired.sounddogs.com/previews/2122/mp3/255466_SOUNDDOGS__bu.mp3').play();
+  },
+
+  correctAnswerDing() {
+    new Audio('https://www.myinstants.com/media/sounds/ding-sound-effect_2.mp3').play();
   },
 
   showRedX() {
     $('.redx').show();
     setTimeout(() => {
       $('.redx').hide();
-    }, 2000);
+    }, 1000);
   }
 }
 
