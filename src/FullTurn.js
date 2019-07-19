@@ -1,5 +1,4 @@
 import Turn from './Turn.js'
-import Game from './Game.js';
 import DOMupdates from './DOMupdates.js';
 
 class FullTurn extends Turn {
@@ -23,7 +22,7 @@ class FullTurn extends Turn {
       DOMupdates.showRedX();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
-    } else if (!answers.includes(guess)){
+    } else if (!answers.includes(guess)) {
       // bad guess
       // this.currentRound.endRound();
       DOMupdates.showRedX();
@@ -31,14 +30,12 @@ class FullTurn extends Turn {
       this.currentRound.continueRound();
     } else {
       console.log('new checkGuess outcome');
-      //Goal is delete this else eventually
     }
-    // if guess wasn't correct, return and instantiate a new turn w/other player
   }
   
   updateScore(guess) {
     let points = this.currentSurvey.find(survey => {
-      if(survey.answer) {
+      if (survey.answer) {
         let answer = survey.answer.toLowerCase();
         return answer === guess
       }
@@ -49,7 +46,7 @@ class FullTurn extends Turn {
     DOMupdates.updateScore(this.currentPlayer.name, this.currentPlayer.score);
     if (this.checkEndOfRound()) {
       this.currentRound.endRound();
-    };
+    }
   }
 
   checkEndOfRound() {
@@ -57,7 +54,7 @@ class FullTurn extends Turn {
   }
   fillGameBoard(guess) {
     let index = this.currentSurvey.findIndex(survey => {
-      if(survey.answer) {
+      if (survey.answer) {
         let answer = survey.answer.toLowerCase()
         return answer === guess
       }

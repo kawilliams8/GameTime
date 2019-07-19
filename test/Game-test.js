@@ -10,14 +10,14 @@ chai.use(spies);
 chai.spy.on(DOMupdates, ['displayCurrentTurn', 'clearBoard'], () => true);
 
 describe('Game', () => {
-	let game;
-	beforeEach(() => {
+  let game;
+  beforeEach(() => {
     game = new Game(data);
-	});
+  });
 
-	it('should be a function that instantiates a game', () => {
-		expect(Game).to.be.a('function');
-		expect(game).to.be.an.instanceof(Game);
+  it('should be a function that instantiates a game', () => {
+    expect(Game).to.be.a('function');
+    expect(game).to.be.an.instanceof(Game);
   });
 
   it('should pass survey data', () => {

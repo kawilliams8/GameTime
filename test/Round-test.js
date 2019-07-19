@@ -12,15 +12,15 @@ chai.use(spies);
 chai.spy.on(DOMupdates, 'updateLater', () => true);
 
 describe('Round', () => {
-	let game;
-	beforeEach(() => {
+  let game;
+  beforeEach(() => {
     game = new Game(data);
     game.startGame();
-	});
+  });  
 
-	it('should be a function that instantiates a round', () => {
-		expect(FullRound).to.be.a('function');
-		expect(game.currentRound).to.be.an.instanceof(FullRound);
+  it('should be a function that instantiates a round', () => {
+    expect(FullRound).to.be.a('function');
+    expect(game.currentRound).to.be.an.instanceof(FullRound);
   });
 
   it('should instantiate a FullTurn', () => {
