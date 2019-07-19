@@ -2,35 +2,34 @@ import $ from 'jquery';
 
 const DOMupdates = {
 	
-	startGame(game) {
-		game.startGame();
-		$('.main-input__player-one').hide();
-		$('.main-input__player-two').hide();
-		$('.main-button__submit-name').hide();
-	},
+  startGame(game) {
+    game.startGame();
+    $('.main-input__player-one').hide();
+    $('.main-input__player-two').hide();
+    $('.main-button__submit-name').hide();
+  },
   
   displayCurrentTurn(currentPlayerName, question) {
     $('.main-span__current-player').text(`${currentPlayerName}: `);
     $('.main-span__current-question').text(question);
-  },
+  }, 
 
   turnCheckGuess(game) {
     let guess = $('.main-input__guess-input').val();
     game.currentRound.currentTurn.checkGuess(guess.toLowerCase());
-  },
+  },  
 
   updateScore(name, score) {
     let playerOneName = $('.main-span__player-one-name').text();
-    let playerTwoName = $('.main-span__player-two-name').text();
     let playerOneScore = $('.main-h2__player-one-score');
     let playerTwoScore = $('.main-h2__player-two-score');
     name === playerOneName ? playerOneScore.text(score) : playerTwoScore.text(score);
-  },
+  }, 
 
   surveySays(location, guess, points) {
     $(`.main-tr__${location}-answer`).text(guess.toUpperCase()).css({'padding-left': '10px', 'background-color': 'black', 'width': '81.5%'})
     $(`.main-tr__${location}-respondents`).text(points).css({'padding-left': '10px', 'background-color': 'black', 'border-left': '4px solid #fc5454'})
-  },
+  },  
 
   clearBoard() {
     setTimeout(() => {
@@ -52,7 +51,7 @@ const DOMupdates = {
       $('.player.two.face').css('display', 'block');
       $('.player.two.turned').css('display', 'none');
     }
-  },
+  },  
 
   wrongAnswerBuzzer() {
     new Audio('https://retired.sounddogs.com/previews/2122/mp3/255466_SOUNDDOGS__bu.mp3').play();
