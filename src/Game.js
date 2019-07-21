@@ -1,5 +1,6 @@
 import Player from '../src/Player.js';
 import FullRound from './FullRound.js';
+import FastRound from './FastRound.js';
 import DOMupdates from './DOMupdates.js';
 
 class Game {
@@ -52,10 +53,15 @@ class Game {
   startFastRound() {
     this.currentRound = new FastRound(this, this.returnStartingPlayer());
     this.currentRound.roundType = 'Fast';
+    this.currentRound.beginRound();
   }  
 	
   returnStartingPlayer() {
-    return this.roundCounter === 1 ? this.playerOne : this.playerTwo;
+    return this.roundCounter % 2 === 0 ? this.playerTwo : this.playerOne;
+  }
+
+  declareWinner() {
+    console.log('Declare Winner stuff goes here')
   }
 }
 
