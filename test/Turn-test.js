@@ -5,12 +5,13 @@ import data from '../src/Data.js';
 import Game from '../src/Game.js';
 import Turn from '../src/Turn.js';
 import FullTurn from '../src/FullTurn.js';
+import FastTurn from '../src/FastTurn.js';
 
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['surveySays', 'updateScore', 'correctAnswerDing', 'showRedX', 'wrongAnswerBuzzer', 'startFastTurn'], () => true);
+chai.spy.on(DOMupdates, ['surveySays', 'updateScore', 'correctAnswerDing', 'showRedX', 'wrongAnswerBuzzer', 'startTimer'], () => true);
 
 
 describe('FullTurn', () => {
@@ -77,17 +78,19 @@ let game;
 beforeEach(() => {
   game = new Game(data);
   game.startGame();
+  game.roundCounter = 3;
+  game.startNextRound();
   game.currentRound.beginRound();
   });
 
   it('should be a function that instantiates a FastTurn', () => {
     expect(FullTurn).to.be.a('function');
-    expect(game.currentRound.currentTurn).to.be.an.instanceof(FullTurn);
+    expect(game.currentRound.currentTurn).to.be.an.instanceof(FastTurn);
   });
 
   it('should start the timer when the player is ready', () => {
     game.currentRound.currentTurn.startFastTurn();
-    expect(DOMupdates.startFastTurn).to.have.been.called(1);
+    expect(DOMupdates.startTimer).to.have.been.called(1);
   });
 
   it('should store an array of guesses', () => {

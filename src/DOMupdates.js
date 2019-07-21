@@ -67,6 +67,10 @@ const DOMupdates = {
     setTimeout(() => {
       $('.redx').hide();
     }, 1000);
+  }, 
+
+  startTimer() {
+    console.log('hi')
   }
 }
 
