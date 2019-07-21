@@ -10,7 +10,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['startGame', 'surveySays', 'updateScore'], () => true);
+chai.spy.on(DOMupdates, ['surveySays', 'updateScore', 'correctAnswerDing', 'showRedX', 'wrongAnswerBuzzer'], () => true);
 
 
 describe('FullTurn', () => {
@@ -35,23 +35,30 @@ describe('FullTurn', () => {
   it('should receive and check a correct player guess', () => {
     let answer1 = game.currentSurvey[1].answer;
     game.currentRound.currentTurn.checkGuess(answer1);
+    expect(DOMupdates.correctAnswerDing).to.have.been.called(1);
     expect(game.currentRound.currentTurn.correctGuesses.length).to.equal(1);
-    expect(game.currentRound.currentTurn.correctGuesses[0]).to.equal(answer1);
+    expect(game.currentRound.currentTurn.correctGuesses[0]).to.equal(answer1.toLowerCase());
   });
 
   it('should receive and check a previously used correct guess', () => {
     let answer1 = game.currentSurvey[1].answer;
     let answer2 = game.currentSurvey[2].answer;
-    game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
+    game.currentRound.currentTurn.checkGuess(answer1);
     game.currentRound.currentTurn.checkGuess(answer2);
+    game.currentRound.currentTurn.checkGuess(answer2);
+    expect(game.currentRound.currentTurn.correctGuesses.length).to.equal(2);
+    expect(DOMupdates.showRedX).to.have.been.called(1);
   });
 
   it('should receive and check an incorrect guess', () => {
     let answer1 = game.currentSurvey[1].answer;
     let answer2 = game.currentSurvey[2].answer;
-    game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
+    game.currentRound.currentTurn.checkGuess(answer1);
+    game.currentRound.currentTurn.checkGuess(answer2);
     game.currentRound.currentTurn.checkGuess('wrong');
     expect(game.currentRound.currentPlayer).to.deep.equal(game.playerTwo);
+    expect(DOMupdates.showRedX).to.have.been.called(2);
+    expect(DOMupdates.wrongAnswerBuzzer).to.have.been.called(1);
   });
 
   it('should end the round if all answers have been guessed', () => {
@@ -61,6 +68,7 @@ describe('FullTurn', () => {
     game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
     game.currentRound.currentTurn.checkGuess(answer3);
     expect(game.roundCounter).to.equal(2);
+    expect(DOMupdates.surveySays()).to.equal(true);
   });
 })
 
