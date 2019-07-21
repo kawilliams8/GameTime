@@ -10,7 +10,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['startGame', 'turnHeadsForPlayers', 'surveySays', 'updateScore'], () => true);
+chai.spy.on(DOMupdates, ['startGame', 'surveySays', 'updateScore'], () => true);
 
 
 describe('FullTurn', () => {

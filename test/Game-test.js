@@ -7,7 +7,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['displayCurrentTurn', 'clearBoard'], () => {});
+chai.spy.on(DOMupdates, ['clearBoard'], () => {});
 
 describe('Game', () => {
   let game;
