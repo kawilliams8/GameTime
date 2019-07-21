@@ -9,18 +9,18 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['turnHeadsForPlayers'], () => {});
+chai.spy.on(DOMupdates, ['turnHeadsForPlayers', 'displayCurrentTurn'], () => true);
 
-describe('FullRound', () => {
-	let game;
-	beforeEach(() => {
+describe('Round', () => {
+  let game;
+  beforeEach(() => {
     game = new Game(data);
     game.startGame();
-	});
+  });  
 
-	it('should be a function that instantiates a round', () => {
-		expect(FullRound).to.be.a('function');
-		expect(game.currentRound).to.be.an.instanceof(FullRound);
+  it('should be a function that instantiates a round', () => {
+    expect(FullRound).to.be.a('function');
+    expect(game.currentRound).to.be.an.instanceof(FullRound);
   });
 
   it('should instantiate a FullTurn', () => {
@@ -31,15 +31,28 @@ describe('FullRound', () => {
   it('should continue an ongoing FullRound', () => {
     game.currentRound.continueRound();
     expect(game.currentRound.currentTurn).to.be.an.instanceOf(FullTurn);
-    expect(DOMupdates.displayCurrentTurn).to.be.called(1);
-    expect(DOMupdates.turnHeadsForPlayers).to.be.called(1);
+    expect(DOMupdates.displayCurrentTurn()).to.equal(true);
+    expect(DOMupdates.turnHeadsForPlayers()).to.equal(true);
   });
 
   it('should end the FullRound', () => {
     game.currentRound.endRound();
     expect(game.roundCounter).to.equal(2);
-    expect(DOMupdates.displayCurrentTurn).to.be.called(1);
-    expect(DOMupdates.turnHeadsForPlayers).to.be.called(1);
+    expect(DOMupdates.displayCurrentTurn()).to.equal(true);
+    expect(DOMupdates.turnHeadsForPlayers()).to.equal(true);
   });
   
-})
+});
+
+describe('FullRound', () => {
+  let game;
+  beforeEach(() => {
+    game = new Game(data);
+    game.startGame();
+  });
+  
+  it('should continue a full round', () => {
+    game.currentRound.continueRound();
+    expect(game.currentRound.roundType).to.equal('Full');
+  })
+});

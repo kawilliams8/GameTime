@@ -6,23 +6,24 @@ import Game from '../src/Game.js';
 import Turn from '../src/Turn.js';
 import FullTurn from '../src/FullTurn.js';
 
-// import spies from 'chai-spies';
-// import DOMupdates from '../src/DOMupdates.js';
-// chai.use(spies);
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, 'updateLater', () => true);
+chai.spy.on(DOMupdates, ['startGame', 'turnHeadsForPlayers', 'surveySays', 'updateScore'], () => true);
+
 
 describe('FullTurn', () => {
-	let game;
-	beforeEach(() => {
+  let game;
+  beforeEach(() => {
     game = new Game(data);
     game.startGame();
     game.currentRound.beginRound();
-	});
+  });
 
-	it('should be a function that instantiates a player', () => {
-		expect(FullTurn).to.be.a('function');
-		expect(game.currentRound.currentTurn).to.be.an.instanceof(FullTurn);
+  it('should be a function that instantiates a player', () => {
+    expect(FullTurn).to.be.a('function');
+    expect(game.currentRound.currentTurn).to.be.an.instanceof(FullTurn);
   });
   
   it('should receive information from Turn', () => {
@@ -41,7 +42,6 @@ describe('FullTurn', () => {
   it('should receive and check a previously used correct guess', () => {
     let answer1 = game.currentSurvey[1].answer;
     let answer2 = game.currentSurvey[2].answer;
-    let answer3 = game.currentSurvey[3].answer;
     game.currentRound.currentTurn.correctGuesses = [answer1, answer2];
     game.currentRound.currentTurn.checkGuess(answer2);
   });
@@ -65,16 +65,16 @@ describe('FullTurn', () => {
 })
 
 // describe('FastTurn'), () => {
-  // let player1, player2, turn, survey;
-  // beforeEach(() => {
-  //   player1 = new Player('Djavan');
-  //   player2 = new Player('Katie');
-  //   survey = [
-  //     { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' },
-  //     { answer: 'Beer', respondents: 67, surveyId: 1 },
-  //     { answer: 'Donuts', respondents: 24, surveyId: 1 },
-  //     { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
-  //   ]
-  //   turn = new Turn(player2, survey)
-  // });
+// let player1, player2, turn, survey;
+// beforeEach(() => {
+//   player1 = new Player('Djavan');
+//   player2 = new Player('Katie');
+//   survey = [
+//     { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' },
+//     { answer: 'Beer', respondents: 67, surveyId: 1 },
+//     { answer: 'Donuts', respondents: 24, surveyId: 1 },
+//     { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }
+//   ]
+//   turn = new Turn(player2, survey)
+// });
 // }

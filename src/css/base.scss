@@ -6,6 +6,7 @@ $font: 'VT323', monospace;
 
 //Use only the following font-sizes, in pixels:
 //36, 49, 65, 87, 116
+
 * {
   // border: 1px solid blanchedalmond;
   box-sizing: border-box;
@@ -14,6 +15,7 @@ body {
   background-color: $black;
   font-family: $font;
   font-size: 49px;
+  height: 100vh;
 }
 
 //////////////////Splash page styles/////////////////
@@ -75,9 +77,9 @@ main {
   "score1 . gameboard gameboard gameboard . score2"
   ". . . . . . ."
   ". question question question question question ."
-  " . players players players players players buttons"
+  "leftbuttons input input input input input buttons"  
+  " leftbuttons players players players players players buttons"
   ". players players players players players buttons"
-  ". input input input input input buttons";  
 }
 
 .main-image__scoreboard {
@@ -125,33 +127,32 @@ main {
   grid-area: question;
 }
 
+/////////////////////Main game buttons and input/////////////////
 .main-section__game-buttons {
   grid-area: buttons;
+}
+
+.main-section__left-buttons {
+  grid-area: leftbuttons;
 }
 
 .main-section__guess-input {
   grid-area: input;
 }
 
+.welcomeCenter {
+  border: 8px dotted $red;
+  font-size: 49px;
+  margin: 0 225px;
+  text-align: center;
+}
+
+/////////////////////Main game player characters/////////////////
 .main-section__player-images {
   display: flex;
   grid-area: players;
-  margin-top: 100px;
+  // margin-top: 100px;
   justify-content: space-around;
-}
-
-.main-table__responses {
-  border: none;
-  border-collapse: collapse;
-}
-
-.tr {
-  border: 2px solid $red;
-  height: 64px;
-}
-
-.main-tr__middle-response {
-  margin: 0;
 }
 
 .player.one, 
@@ -167,6 +168,21 @@ main {
 
 .player.face {
   display: block;
+}
+
+/////////////////////Gameboard survey responses/////////////////
+.main-table__responses {
+  border: none;
+  border-collapse: collapse;
+}
+
+.tr {
+  border: 2px solid $red;
+  height: 64px;
+}
+
+.main-tr__middle-response {
+  margin: 0;
 }
 
 .main-button__submit-name {
@@ -187,7 +203,7 @@ main {
   font-size: 36px;
   height: 60px;
   width: 690px;
-  margin-left: 150px;
+  margin: 25px 0px 0px 150px;
 }
 
 .main-button__start-game,
@@ -203,7 +219,50 @@ main {
   margin: 25px;
 }
 
+.main-button__submit-guess {
+  margin-left: -70px;
+}
+
+.main-section__player-images {
+  position: relative;
+}
+
+.main-span__player-one-name,
+.main-span__player-two-name {
+  color: $black;
+  font-size: 24px;
+  margin-top: 120px;
+  position: absolute;
+  z-index: 100;
+}
+
+.main-h3__player-one-name {
+  color: $black;
+  font-size: 36px;
+  margin-top: 10px;
+  margin-left: 90px;
+  width: 100px;
+}
+
+.main-h3__player-two-name {
+  margin-top: 10px;
+  margin-left: -70px;
+  color: $black;
+  font-size: 36px;
+}
+
 ::-webkit-input-placeholder{
   color: $red;
   opacity: 0.5;
+}
+
+.redx {
+  grid-area: gameboard;
+  margin: 25px auto 0px auto;
+
+  img {
+    height: 150px;
+    position: relative;
+    z-index: 5;
+  }
 }
