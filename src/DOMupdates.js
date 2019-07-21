@@ -7,6 +7,7 @@ const DOMupdates = {
     $('.main-input__player-one').hide();
     $('.main-input__player-two').hide();
     $('.main-button__submit-name').hide();
+
   },
   
   displayCurrentTurn(currentPlayerName, question) {
@@ -69,8 +70,14 @@ const DOMupdates = {
     }, 1000);
   }, 
 
-  startTimer() {
-    console.log('hi')
+  updateTimer(seconds) {
+    $('.main-h4__timer').text(seconds);
+    $('.main-button__submit-guess').hide();
+  },
+
+  updateFastRoundButtons(question) {
+    $('.main-button__start-game').hide();
+    $('.main-button__start-fast-turn').show();
   }
 }
 

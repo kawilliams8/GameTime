@@ -13,8 +13,10 @@ import './images/red-x.png';
 import Player from '../src/Player.js';
 import Turn from '../src/Turn.js';
 import FullTurn from '../src/FullTurn.js';
+import FastTurn from '../src/FastTurn.js';
 import Round from '../src/Round.js';
 import FullRound from '../src/FullRound.js';
+import FastRound from '../src/FastRound.js';
 import Game from '../src/Game.js';
 import DOMupdates from '../src/DOMupdates.js';
 
@@ -35,6 +37,8 @@ $('.main-button__submit-name').on('click', (e) => {
   $('.redx').hide();
   $('.main-button__submit-guess').hide();
   $('.main-button__reset-game').hide();
+  $('.main-button__start-fast-turn').hide();
+  $('.main-button__submit-fast-guess').hide();
   game.playerOne.name = $('.main-input__player-one').val();
   game.playerTwo.name = $('.main-input__player-two').val();
   $('.main-span__player-one-name').text(game.playerOne.name);
@@ -60,4 +64,16 @@ $('.main-section__guess-input').keypress((e) => {
     DOMupdates.turnCheckGuess(game);
     $('.main-input__guess-input').val('');
   }
+})
+
+$('.main-button__start-fast-turn').on('click', () => {
+  $('.main-button__submit-fast-guess').show();
+  $('.main-button__submit-guess').hide();
+  game.currentRound.currentTurn.startFastTurn();
+})
+
+$('.main-button__submit-fast-guess').on('click', () => {
+  let guess = $('.main-input__guess-input').val();
+  game.currentRound.currentTurn.compileGuess(guess);
+  $('.main-input__guess-input').val('');
 })

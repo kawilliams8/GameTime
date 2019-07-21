@@ -208,7 +208,9 @@ main {
 
 .main-button__start-game,
 .main-button__reset-game,
-.main-button__submit-guess {
+.main-button__submit-guess,
+.main-button__start-fast-turn, 
+.main-button__submit-fast-guess {
   color: $black;
   background-color:$yellow;
   border: 3px dotted $red;

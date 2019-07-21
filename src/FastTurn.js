@@ -1,5 +1,6 @@
 import Turn from './Turn';
 import DOMupdates from './DOMupdates.js';
+import Game from './Game';
 
 class FastTurn extends Turn {
   constructor(currentRound, currentPlayer, currentSurvey) {
@@ -10,11 +11,13 @@ class FastTurn extends Turn {
   }
 
   startFastTurn() {
-    DOMupdates.startTimer();
+    DOMupdates.updateTimer(this.seconds);
+    this.decrementTimer();
   }
 
   compileGuess(guess) {
     this.guesses.push(guess.toLowerCase());
+    console.log(this.guesses)
   }
 
   removeIncorrectGuess() {
@@ -29,6 +32,14 @@ class FastTurn extends Turn {
         return guess;
       };
     });
+  }
+
+  decrementTimer() {
+    setTimeout(() => {
+      this.seconds--;
+      DOMupdates.updateTimer(this.seconds);
+      this.seconds >= 1 ? this.decrementTimer() : this.currentRound.endRound();
+    }, 1000);
   }
 
 }
