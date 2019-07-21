@@ -9,7 +9,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['turnHeadsForPlayers'], () => true);
+chai.spy.on(DOMupdates, ['turnHeadsForPlayers'], () => {});
 
 describe('FullRound', () => {
 	let game;
@@ -32,18 +32,14 @@ describe('FullRound', () => {
     game.currentRound.continueRound();
     expect(game.currentRound.currentTurn).to.be.an.instanceOf(FullTurn);
     expect(DOMupdates.displayCurrentTurn).to.be.called(1);
-    expect(DOMupdates.displayCurrentTurn).to.equal(true);
     expect(DOMupdates.turnHeadsForPlayers).to.be.called(1);
-    expect(DOMupdates.turnHeadsForPlayers).to.equal(true);
   });
 
   it('should end the FullRound', () => {
     game.currentRound.endRound();
     expect(game.roundCounter).to.equal(2);
     expect(DOMupdates.displayCurrentTurn).to.be.called(1);
-    expect(DOMupdates.displayCurrentTurn).to.equal(true);
     expect(DOMupdates.turnHeadsForPlayers).to.be.called(1);
-    expect(DOMupdates.turnHeadsForPlayers).to.equal(true);
   });
   
 })
