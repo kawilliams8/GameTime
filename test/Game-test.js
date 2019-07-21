@@ -7,7 +7,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['displayCurrentTurn', 'clearBoard'], () => true);
+chai.spy.on(DOMupdates, ['displayCurrentTurn', 'clearBoard'], () => {});
 
 describe('Game', () => {
   let game;
@@ -58,6 +58,7 @@ describe('Game', () => {
     game.startNextRound();
     expect(game.usedSurveys.length).to.equal(2);
     expect(game.currentRound.roundType).to.equal('Full');
+    expect(DOMupdates.clearBoard).to.have.been.called(1);
   });
 
 })
