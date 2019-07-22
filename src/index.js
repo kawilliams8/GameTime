@@ -28,6 +28,7 @@ $(document).ready(() => {
 })
 
 $('.main-button__submit-name').on('click', () => {
+  new Audio('http://23.237.126.42/ost/family-feud-1993-snes/cxipbygzai/05%20Press%20Start%20Title%20Theme.mp3').play()
   $('.splash').hide();
   $('.board').show();
   $('.redx').hide();
