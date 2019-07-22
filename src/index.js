@@ -119,3 +119,7 @@ $('.main-button__reset-game').on('click', () => {
 $('.fastMoney-button').on('click', () => {
   DOMupdates.displayFastMoney();
 });
+
+$('.winner-button').on('click', () => {
+  DOMupdates.resetGame();
+});
