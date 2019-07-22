@@ -31,6 +31,7 @@ $(document).ready(() => {
   $('.board').hide();
   $('.main-input__multiplier-input').hide();
   $('.main-input__fast-guess-input').hide();
+  $('.roundSplash').hide();
 })
 
 $('.main-button__submit-name').on('click', (e) => {
@@ -111,6 +112,10 @@ $('.main-button__start-fast-turn').on('click', () => {
   game.currentRound.currentTurn.startFastTurn();
 })
 
-$('.main-button__reset-game').on('click', function () {
+$('.main-button__reset-game').on('click', () => {
   DOMupdates.resetGame();
+});
+
+$('.fastMoney-button').on('click', () => {
+  DOMupdates.displayFastMoney();
 });

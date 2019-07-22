@@ -96,10 +96,23 @@ const DOMupdates = {
   displayWinner(player) {
     $('.winner-name').text(player.name);
     $('.winner-points').text(player.score);
+    $('.board').hide();
+    $('.winner').show();
   },
 
   resetGame() {
     window.location.reload(true);
+  },
+
+  displayFastRoundMsg() {
+    $('.board').hide();
+    $('.fastMoney').show();
+  },
+
+  displayFastMoney() {
+    $('.board').show();
+    $('.redx').hide();
+    $('.fastMoney').hide();
   }
 }
 

@@ -217,7 +217,9 @@ main {
 .main-button__submit-guess,
 .main-button__start-fast-turn, 
 .main-button__submit-fast-guess,
-.main-button__submit-multiplier {
+.main-button__submit-multiplier,
+.fastMoney-button,
+.winner-button {
   color: $black;
   background-color:$yellow;
   border: 3px dotted $red;
@@ -274,4 +276,8 @@ main {
     position: relative;
     z-index: 5;
   }
+}
+
+.fastMoney {
+  text-align: center;
 }
