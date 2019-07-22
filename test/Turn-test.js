@@ -11,7 +11,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['surveySays', 'updateScore', 'correctAnswerDing', 'showRedX', 'wrongAnswerBuzzer', 'startTimer'], () => true);
+chai.spy.on(DOMupdates, ['surveySays', 'updateScore', 'correctAnswerDing', 'showRedX', 'wrongAnswerBuzzer', 'startTimer', 'updateTimer'], () => true);
 
 
 describe('FullTurn', () => {
