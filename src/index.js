@@ -92,7 +92,7 @@ $('.main-input__fast-guess-input').keypress((e) => {
   var key = e.which;
   if (key == 13 && game.currentSurvey.length > 0) {
     let guess = $('.main-input__fast-guess-input').val();
-    console.log("This is the entered guess", guess)
+    // console.log("This is the entered guess", guess)
     game.currentRound.currentTurn.compileGuess(guess);
     $('.main-input__fast-guess-input').val('');
   }
