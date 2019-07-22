@@ -129,8 +129,6 @@ beforeEach(() => {
     let answer2 = game.currentSurvey[2].answer;
     let respondents1 = game.currentSurvey[1].respondents;
     let respondents2 = game.currentSurvey[2].respondents;
-    console.log(respondents1, respondents2)
-    console.log(game.currentSurvey)
     game.currentRound.currentTurn.compileGuess(answer1);
     game.currentRound.currentTurn.compileGuess(answer2);
     game.currentRound.currentTurn.calculateRespondents();
@@ -138,9 +136,9 @@ beforeEach(() => {
   });
 
   it('should have a working timer', () => {
-    game.currentRound.currentTurn.seconds = 2;
+    chai.spy.on(game.currentRound.currentTurn, ['decrementTimer'], () => {})
     game.currentRound.currentTurn.startFastTurn();
-    expect(this.currentRound.currentTurn.seconds).to.equal(0);
+    expect(game.currentRound.currentTurn.decrementTimer).to.have.been.called(1);
   });
 
 });

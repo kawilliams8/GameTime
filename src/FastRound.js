@@ -22,7 +22,6 @@ class FastRound extends Round {
     this.game.currentSurvey = [];
     this.game.selectSurvey();
     this.currentSurvey = this.game.currentSurvey;
-    // console.log('Player 2 survey', this.currentSurvey);
     DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
     DOMupdates.hideFastGuessInput();
     DOMupdates.showMultiplierInput();
