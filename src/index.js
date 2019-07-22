@@ -110,3 +110,7 @@ $('.main-button__start-fast-turn').on('click', () => {
   $('.main-span__current-question').text(game.currentSurvey[0].question);
   game.currentRound.currentTurn.startFastTurn();
 })
+
+$('.main-button__reset-game').on('click', function () {
+  DOMupdates.resetGame();
+});

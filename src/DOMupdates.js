@@ -95,6 +95,10 @@ const DOMupdates = {
   displayWinner(player) {
     $('.winner-name').text(player.name);
     $('.winner-points').text(player.score);
+  },
+
+  resetGame() {
+    window.location.reload(true);
   }
 }
 
