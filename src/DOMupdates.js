@@ -94,7 +94,7 @@ const DOMupdates = {
   },
 
   displayWinner(player) {
-    new Audio().play()
+    // new Audio().play()
     $('.winner-name').text(player.name);
     $('.winner-points').text(player.score);
     $('.board').hide();

@@ -13,7 +13,7 @@ class FastRound extends Round {
     this.currentTurn = new FastTurn(this, this.currentPlayer, this.currentSurvey);
     DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
     DOMupdates.showMultiplierInput();
-    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
+    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Submit a multiplier and click the Start Fast Money button to start your Fast Money Round!');
   }
 
   continueRound() {
@@ -26,7 +26,7 @@ class FastRound extends Round {
     DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
     DOMupdates.hideFastGuessInput();
     DOMupdates.showMultiplierInput();
-    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
+    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Submit a multiplier and click the Start Fast Money button to start your Fast Money Round!');
     this.currentTurn = new FastTurn(this, this.currentPlayer, this.currentSurvey)
   }
 
