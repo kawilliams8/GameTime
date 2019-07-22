@@ -48,16 +48,14 @@ class Game {
     this.currentRound = new FullRound(this, this.returnStartingPlayer());
     this.currentRound.roundType = 'Full';
     this.currentRound.beginRound();
-    console.log(this.currentSurvey)
   } 
 	
   startFastRound() {
-	DOMupdates.displayFastRoundMsg();
+    DOMupdates.displayFastRoundMsg();
     this.currentRound = new FastRound(this, this.returnStartingPlayer());
     this.currentRound.roundType = 'Fast';
     this.currentRound.beginRound();
     DOMupdates.updateFastRoundButtons();
-    console.log(this.currentSurvey)
   }  
 	
   returnStartingPlayer() {

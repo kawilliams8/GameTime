@@ -1,6 +1,5 @@
 import Turn from './Turn';
 import DOMupdates from './DOMupdates.js';
-import Game from './Game';
 
 class FastTurn extends Turn {
   constructor(currentRound, currentPlayer, currentSurvey) {
@@ -23,12 +22,12 @@ class FastTurn extends Turn {
     let answers = this.currentSurvey.filter(survey => {
       if (survey.answer) {
         return survey;
-      };
+      }
     }).map(answer => answer.answer.toLowerCase())
     this.guesses = this.guesses.filter(guess => {
       if (answers.includes(guess.toLowerCase())) {
         return guess;
-      };
+      }
     });
     this.calculateRespondents();
   }
@@ -47,16 +46,16 @@ class FastTurn extends Turn {
         return survey;
       }
     })
-      let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
-        this.currentSurvey.forEach(survey => {
-          if(survey.answer === matchingSurvey.answer) {
-            totalPoints += survey.respondents;
-          }
-        })
-        return totalPoints;
-      }, 0)
-      this.currentPlayer.updateFinalScore(points)
-      this.currentRound.endRound();
+    let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
+      this.currentSurvey.forEach(survey => {
+        if (survey.answer === matchingSurvey.answer) {
+          totalPoints += survey.respondents;
+        }
+      })
+      return totalPoints;
+    }, 0)
+    this.currentPlayer.updateFinalScore(points)
+    this.currentRound.endRound();
   }
 }
 
