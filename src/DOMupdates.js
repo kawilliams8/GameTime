@@ -25,7 +25,8 @@ const DOMupdates = {
     let playerOneName = $('.main-span__player-one-name').text();
     let playerOneScore = $('.main-h2__player-one-score');
     let playerTwoScore = $('.main-h2__player-two-score');
-    name === playerOneName ? playerOneScore.text(score) : playerTwoScore.text(score);
+    name === playerOneName ? 
+    playerOneScore.text(score) : playerTwoScore.text(score);
   }, 
 
   surveySays(location, guess, points) {
@@ -75,7 +76,7 @@ const DOMupdates = {
     $('.main-button__submit-guess').hide();
   },
 
-  updateFastRoundButtons(question) {
+  updateFastRoundButtons() {
     $('.main-button__start-game').hide();
     $('.main-button__start-fast-turn').show();
   },
