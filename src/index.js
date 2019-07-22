@@ -28,6 +28,7 @@ fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
   .catch(error => console.log(error))
 
 $(document).ready(() => {
+  new Audio('http://23.237.126.42/ost/family-feud-1993-snes/cxipbygzai/05%20Press%20Start%20Title%20Theme.mp3').play();
   $('.board').hide();
   $('.main-input__multiplier-input').hide();
   $('.main-input__fast-guess-input').hide();
@@ -120,6 +121,6 @@ $('.fastMoney-button').on('click', () => {
   DOMupdates.displayFastMoney();
 });
 
-$('.winner-button').on('click', () => {
-  DOMupdates.resetGame();
-});
+// $('.winner-button').on('click', () => {
+//   DOMupdates.resetGame();
+// });
