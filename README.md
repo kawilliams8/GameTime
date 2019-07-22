@@ -6,4 +6,4 @@
 * Katie Williams ([Kawilliams8](https://github.com/kawilliams8))
 
 ### 
-![GitHub Logo](/images/splash.png)
+![Family Feud splash screen](https://github.com/eoneill23/GameTime/blob/master/Splash.png)
