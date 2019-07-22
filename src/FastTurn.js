@@ -48,9 +48,9 @@ class FastTurn extends Turn {
       }
     })
       let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
-        this.currentSurvey.forEach(survey => {
-          if(survey.answer === matchingSurvey.answer) {
-            totalPoints += survey.respondents;
+        this.guesses.forEach(guess => {
+          if(guess === matchingSurvey.answer.toLowerCase()) {
+            totalPoints += matchingSurvey.respondents;
           }
         })
         return totalPoints;
