@@ -64,7 +64,7 @@ class Game {
   }
 
   declareWinner() {
-    console.log('Declare Winner stuff goes here')
+    this.playerOne.score > this.playerTwo.score ? DOMupdates.displayWinner(this.playerOne) : DOMupdates.displayWinner(this.playerTwo);
   }
 }
 

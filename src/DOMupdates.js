@@ -90,6 +90,11 @@ const DOMupdates = {
   hideFastGuessInput() {
     $('.main-button__submit-fast-guess').hide();
     $('.main-input__fast-guess-input').hide();
+  },
+
+  displayWinner(player) {
+    $('.winner-name').text(player.name);
+    $('.winner-points').text(player.score);
   }
 }
 
