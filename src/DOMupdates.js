@@ -78,6 +78,18 @@ const DOMupdates = {
   updateFastRoundButtons(question) {
     $('.main-button__start-game').hide();
     $('.main-button__start-fast-turn').show();
+  },
+
+  showMultiplierInput() {
+    $('.main-button__submit-guess').hide();
+    $('.main-input__guess-input').hide();
+    $('.main-input__multiplier-input').show();
+    $('.main-button__submit-multiplier').show();
+  },
+
+  hideFastGuessInput() {
+    $('.main-button__submit-fast-guess').hide();
+    $('.main-input__fast-guess-input').hide();
   }
 }
 

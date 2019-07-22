@@ -29,12 +29,15 @@ fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
 
 $(document).ready(() => {
   $('.board').hide();
+  $('.main-input__multiplier-input').hide();
+  $('.main-input__fast-guess-input').hide();
 })
 
 $('.main-button__submit-name').on('click', (e) => {
   $('.splash').hide();
   $('.board').show();
   $('.redx').hide();
+  $('.main-button__submit-multiplier').hide();
   $('.main-button__submit-guess').hide();
   $('.main-button__reset-game').hide();
   $('.main-button__start-fast-turn').hide();
@@ -58,7 +61,7 @@ $('.main-button__submit-guess').on('click', () => {
   $('.main-input__guess-input').val('');
 })
 
-$('.main-section__guess-input').keypress((e) => {
+$('.main-input__guess-input').keypress((e) => {
   var key = e.which;
   if (key == 13 && game.currentSurvey.length > 0) {
     DOMupdates.turnCheckGuess(game);
@@ -66,14 +69,44 @@ $('.main-section__guess-input').keypress((e) => {
   }
 })
 
-$('.main-button__start-fast-turn').on('click', () => {
-  $('.main-button__submit-fast-guess').show();
-  $('.main-button__submit-guess').hide();
-  game.currentRound.currentTurn.startFastTurn();
+$('.main-input__multiplier-input').keypress((e) => {
+  var key = e.which;
+  if (key == 13 && game.currentSurvey.length > 0) {
+    game.currentRound.currentPlayer.multiplier = $('.main-input__multiplier-input').val();
+    $('.main-input__multiplier-input').val('');
+    $('.main-input__multiplier-input').hide();
+    $('.main-input__fast-guess-input').show();
+  }
+})
+
+$('.main-button__submit-multiplier').on('click', () => {
+    game.currentRound.currentPlayer.multiplier = $('.main-input__multiplier-input').val();
+    $('.main-input__multiplier-input').val('');
+    $('.main-button__submit-multiplier').hide();
+    $('.main-input__multiplier-input').hide();
+    $('.main-button__submit-fast-guess').show();
+    $('.main-input__fast-guess-input').show();
+})
+
+$('.main-input__fast-guess-input').keypress((e) => {
+  var key = e.which;
+  if (key == 13 && game.currentSurvey.length > 0) {
+    let guess = $('.main-input__fast-guess-input').val();
+    console.log("This is the entered guess", guess)
+    game.currentRound.currentTurn.compileGuess(guess);
+    $('.main-input__fast-guess-input').val('');
+  }
 })
 
 $('.main-button__submit-fast-guess').on('click', () => {
-  let guess = $('.main-input__guess-input').val();
+  let guess = $('.main-input__fast-guess-input').val();
   game.currentRound.currentTurn.compileGuess(guess);
-  $('.main-input__guess-input').val('');
+  $('.main-input__fast-guess-input').val('');
+})
+
+$('.main-button__start-fast-turn').on('click', () => {
+  $('.main-button__submit-fast-guess').show();
+  $('.main-button__submit-guess').hide();
+  $('.main-span__current-question').text(game.currentSurvey[0].question);
+  game.currentRound.currentTurn.startFastTurn();
 })

@@ -195,7 +195,9 @@ main {
   width: 200px;
 }
 
-.main-input__guess-input {
+.main-input__guess-input,
+.main-input__multiplier-input,
+.main-input__fast-guess-input {
   color: $black;
   background-color:$yellow;
   border: 3px dotted $red;
@@ -210,7 +212,8 @@ main {
 .main-button__reset-game,
 .main-button__submit-guess,
 .main-button__start-fast-turn, 
-.main-button__submit-fast-guess {
+.main-button__submit-fast-guess,
+.main-button__submit-multiplier {
   color: $black;
   background-color:$yellow;
   border: 3px dotted $red;

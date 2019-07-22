@@ -7,7 +7,7 @@ class FastTurn extends Turn {
     super(currentRound, currentPlayer, currentSurvey)
     this.startingPlayer = currentPlayer;
     this.guesses = [];
-    this.seconds = 30;
+    this.seconds = 5;
   }
 
   startFastTurn() {

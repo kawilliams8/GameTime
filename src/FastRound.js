@@ -11,19 +11,24 @@ class FastRound extends Round {
 
   beginRound() {
     this.currentTurn = new FastTurn(this, this.currentPlayer, this.currentSurvey);
-    DOMupdates.displayCurrentTurn(this.currentPlayer.name, '');
-    // DOMupdates.displayCurrentTurn(this.currentPlayer.name, this.currentSurvey[0].question);
+    DOMupdates.showMultiplierInput();
+    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
   }
 
   continueRound() {
-    console.log('continuing next fast turn')
     this.currentSurvey = this.game.selectSurvey();
     if (this.currentPlayer === this.playerOne) {
       this.currentPlayer = this.playerTwo;
     } else if (this.currentPlayer === this.playerTwo) {
       this.currentPlayer = this.playerOne;
     }
-    this.currentSurvey = this.game.selectSurvey();
+    this.game.currentSurvey = [];
+    this.game.selectSurvey();
+    this.currentSurvey = this.game.currentSurvey;
+    console.log('Player 2 survey', this.currentSurvey);
+    DOMupdates.hideFastGuessInput();
+    DOMupdates.showMultiplierInput();
+    DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
     this.currentTurn = new FastTurn(this, this.currentPlayer, this.currentSurvey)
   }
 
