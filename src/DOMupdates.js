@@ -12,7 +12,7 @@ const DOMupdates = {
   
   displayCurrentTurn(currentPlayerName, question) {
     $('.main-span__current-player').removeClass('welcomeCenter');
-    $('.main-span__current-player').text(`${currentPlayerName}: `);
+    $('.main-span__current-player').text(`${currentPlayerName.toUpperCase()}: `);
     $('.main-span__current-question').text(question);
   }, 
 
