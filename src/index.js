@@ -10,13 +10,6 @@ import './images/player-two_turned.png';
 import './images/player-two_podium.png';
 import './images/red-x.png';
 
-import Player from '../src/Player.js';
-import Turn from '../src/Turn.js';
-import FullTurn from '../src/FullTurn.js';
-import FastTurn from '../src/FastTurn.js';
-import Round from '../src/Round.js';
-import FullRound from '../src/FullRound.js';
-import FastRound from '../src/FastRound.js';
 import Game from '../src/Game.js';
 import DOMupdates from '../src/DOMupdates.js';
 
@@ -34,7 +27,8 @@ $(document).ready(() => {
   $('.roundSplash').hide();
 })
 
-$('.main-button__submit-name').on('click', (e) => {
+$('.main-button__submit-name').on('click', () => {
+  new Audio('http://23.237.126.42/ost/family-feud-1993-snes/cxipbygzai/05%20Press%20Start%20Title%20Theme.mp3').play()
   $('.splash').hide();
   $('.board').show();
   $('.redx').hide();
@@ -64,7 +58,7 @@ $('.main-button__submit-guess').on('click', () => {
 
 $('.main-input__guess-input').keypress((e) => {
   var key = e.which;
-  if (key == 13 && game.currentSurvey.length > 0) {
+  if (key === 13 && game.currentSurvey.length > 0) {
     DOMupdates.turnCheckGuess(game);
     $('.main-input__guess-input').val('');
   }
@@ -72,7 +66,7 @@ $('.main-input__guess-input').keypress((e) => {
 
 $('.main-input__multiplier-input').keypress((e) => {
   var key = e.which;
-  if (key == 13 && game.currentSurvey.length > 0) {
+  if (key === 13 && game.currentSurvey.length > 0) {
     game.currentRound.currentPlayer.multiplier = $('.main-input__multiplier-input').val();
     $('.main-input__multiplier-input').val('');
     $('.main-input__multiplier-input').hide();
@@ -81,19 +75,18 @@ $('.main-input__multiplier-input').keypress((e) => {
 })
 
 $('.main-button__submit-multiplier').on('click', () => {
-    game.currentRound.currentPlayer.multiplier = $('.main-input__multiplier-input').val();
-    $('.main-input__multiplier-input').val('');
-    $('.main-button__submit-multiplier').hide();
-    $('.main-input__multiplier-input').hide();
-    $('.main-button__submit-fast-guess').show();
-    $('.main-input__fast-guess-input').show();
+  game.currentRound.currentPlayer.multiplier = $('.main-input__multiplier-input').val();
+  $('.main-input__multiplier-input').val('');
+  $('.main-button__submit-multiplier').hide();
+  $('.main-input__multiplier-input').hide();
+  $('.main-button__submit-fast-guess').show();
+  $('.main-input__fast-guess-input').show();
 })
 
 $('.main-input__fast-guess-input').keypress((e) => {
   var key = e.which;
-  if (key == 13 && game.currentSurvey.length > 0) {
+  if (key === 13 && game.currentSurvey.length > 0) {
     let guess = $('.main-input__fast-guess-input').val();
-    console.log("This is the entered guess", guess)
     game.currentRound.currentTurn.compileGuess(guess);
     $('.main-input__fast-guess-input').val('');
   }
