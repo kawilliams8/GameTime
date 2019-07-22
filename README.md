@@ -6,4 +6,4 @@
 * Katie Williams ([Kawilliams8](https://github.com/kawilliams8))
 
 ### 
-![GitHub Logo](splash.png)
+![GitHub Logo](/images/splash.png)
