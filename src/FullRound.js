@@ -17,11 +17,7 @@ class FullRound extends Round {
   }
 
   continueRound() {
-    if (this.currentPlayer === this.playerOne) {
-      this.currentPlayer = this.playerTwo;
-    } else if (this.currentPlayer === this.playerTwo) {
-      this.currentPlayer = this.playerOne;
-    }
+    this.findCurrentPlayer();
     this.currentTurn = new FullTurn(this, this.currentPlayer, this.currentSurvey, this.correctGuesses);
     DOMupdates.displayCurrentTurn((this.currentPlayer.name), this.currentSurvey[0].question);
     DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);

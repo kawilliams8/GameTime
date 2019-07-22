@@ -11,21 +11,19 @@ class FastRound extends Round {
 
   beginRound() {
     this.currentTurn = new FastTurn(this, this.currentPlayer, this.currentSurvey);
+    DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
     DOMupdates.showMultiplierInput();
     DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
   }
 
   continueRound() {
     this.currentSurvey = this.game.selectSurvey();
-    if (this.currentPlayer === this.playerOne) {
-      this.currentPlayer = this.playerTwo;
-    } else if (this.currentPlayer === this.playerTwo) {
-      this.currentPlayer = this.playerOne;
-    }
+    this.findCurrentPlayer();
     this.game.currentSurvey = [];
     this.game.selectSurvey();
     this.currentSurvey = this.game.currentSurvey;
     console.log('Player 2 survey', this.currentSurvey);
+    DOMupdates.turnHeadsForPlayers(this.currentPlayer.name);
     DOMupdates.hideFastGuessInput();
     DOMupdates.showMultiplierInput();
     DOMupdates.displayCurrentTurn(this.currentPlayer.name, 'Click the Start Fast Money button to start your Fast Money Round!');
@@ -38,7 +36,7 @@ class FastRound extends Round {
     } else {
       this.continueRound();
     }
-  }
+  } 
 }
 
 export default FastRound;

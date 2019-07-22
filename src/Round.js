@@ -8,7 +8,14 @@ class Round {
     this.roundType = "";
     this.game = game;
   }
-
+  
+  findCurrentPlayer() {
+    if (this.currentPlayer === this.playerOne) {
+      this.currentPlayer = this.playerTwo;
+    } else if (this.currentPlayer === this.playerTwo) {
+      this.currentPlayer = this.playerOne;
+    } 
+  }
 }
 
 export default Round;

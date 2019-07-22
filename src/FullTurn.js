@@ -14,25 +14,19 @@ class FullTurn extends Turn {
       return survey.answer.toLowerCase();
     })
     if (answers.includes(guess.toLowerCase()) && !this.correctGuesses.includes(guess.toLowerCase())) {
-      //good guess, original guess
       DOMupdates.correctAnswerDing();
       this.correctGuesses.push(guess.toLowerCase());
       this.updateScore(guess);
     } else if (answers.includes(guess.toLowerCase()) && this.correctGuesses.includes(guess.toLowerCase())) {
-      // good guess, repeat guess
       DOMupdates.showRedX();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
     } else if (!answers.includes(guess.toLowerCase())) {
-      // bad guess
-      // this.currentRound.endRound();
       DOMupdates.showRedX();
       DOMupdates.wrongAnswerBuzzer();
       this.currentRound.correctGuesses = this.correctGuesses;
       this.currentRound.continueRound();
-    } else {
-      console.log('BAD new checkGuess outcome');
-    }
+    } 
   }
   
   updateScore(guess) {
@@ -54,6 +48,7 @@ class FullTurn extends Turn {
   checkEndOfRound() {
     return this.correctGuesses.length === 3;
   }
+
   fillGameBoard(guess) {
     let index = this.currentSurvey.findIndex(survey => {
       if (survey.answer) {

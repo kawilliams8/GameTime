@@ -7,7 +7,7 @@ class FastTurn extends Turn {
     super(currentRound, currentPlayer, currentSurvey)
     this.startingPlayer = currentPlayer;
     this.guesses = [];
-    this.seconds = 15;
+    this.seconds = 30;
   }
 
   startFastTurn() {
@@ -17,7 +17,6 @@ class FastTurn extends Turn {
 
   compileGuess(guess) {
     this.guesses.push(guess.toLowerCase());
-    console.log(this.guesses)
   }
 
   removeIncorrectGuess() {
@@ -48,7 +47,6 @@ class FastTurn extends Turn {
         return survey;
       }
     })
-      console.log('matching surverys', matchingSurveys)
       let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
         this.currentSurvey.forEach(survey => {
           if(survey.answer === matchingSurvey.answer) {
@@ -57,9 +55,7 @@ class FastTurn extends Turn {
         })
         return totalPoints;
       }, 0)
-      console.log('Points', points)
       this.currentPlayer.updateFinalScore(points)
-      console.log('current player score', this.currentPlayer.score)
       this.currentRound.endRound();
   }
 }
