@@ -3,7 +3,6 @@ const expect = chai.expect;
 
 import data from '../src/Data.js';
 import Game from '../src/Game.js';
-import Turn from '../src/Turn.js';
 import FullTurn from '../src/FullTurn.js';
 import FastTurn from '../src/FastTurn.js';
 
@@ -74,13 +73,13 @@ describe('FullTurn', () => {
 })
 
 describe('FastTurn', () => {
-let game;
-beforeEach(() => {
-  game = new Game(data);
-  game.startGame();
-  game.roundCounter = 3;
-  game.startNextRound();
-  game.currentRound.beginRound();
+  let game;
+  beforeEach(() => {
+    game = new Game(data);
+    game.startGame();
+    game.roundCounter = 3;
+    game.startNextRound();
+    game.currentRound.beginRound();
   });
 
   it('should be a function that instantiates a FastTurn', () => {

@@ -51,7 +51,7 @@ class Game {
   } 
 	
   startFastRound() {
-	DOMupdates.displayFastRoundMsg();
+    DOMupdates.displayFastRoundMsg();
     this.currentRound = new FastRound(this, this.returnStartingPlayer());
     this.currentRound.roundType = 'Fast';
     this.currentRound.beginRound();
