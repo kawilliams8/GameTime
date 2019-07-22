@@ -90,7 +90,7 @@ beforeEach(() => {
 
   it('should start the timer when the player is ready', () => {
     game.currentRound.currentTurn.startFastTurn();
-    expect(DOMupdates.startTimer).to.have.been.called(1);
+    expect(DOMupdates.updateTimer).to.have.been.called(1);
   });
 
   it('should store an array of guesses', () => {
@@ -100,24 +100,27 @@ beforeEach(() => {
   });
 
   it('should remove incorrect guesses from the guesses array', () => {
-    let answer1 = game.currentSurvey[1].answer;
-    let answer2 = game.currentSurvey[2].answer;
+    chai.spy.on(game.currentRound.currentTurn, ['calculateRespondents'], () => true)
+    let answer1 = game.currentSurvey[1].answer.toLowerCase();
+    let answer2 = game.currentSurvey[2].answer.toLowerCase();
     game.currentRound.currentTurn.compileGuess(answer1);
     game.currentRound.currentTurn.compileGuess(answer2);
     game.currentRound.currentTurn.compileGuess('wrong');
     expect(game.currentRound.currentTurn.guesses.length).to.equal(3);
     game.currentRound.currentTurn.removeIncorrectGuess();
     expect(game.currentRound.currentTurn.guesses.length).to.equal(2);
+    expect(game.currentRound.currentTurn.calculateRespondents).to.have.been.called(1);
   });
   
   it('should calculate points earned for the turn', () => {
+    chai.spy.on(game.currentRound.currentTurn.currentRound, ['endRound'], () => true)
     let answer1 = game.currentSurvey[1].answer;
     let answer2 = game.currentSurvey[2].answer;
     let respondents1 = game.currentSurvey[1].respondents;
     let respondents2 = game.currentSurvey[2].respondents;
     game.currentRound.currentTurn.compileGuess(answer1);
     game.currentRound.currentTurn.compileGuess(answer2);
-    game.currentRound.currentTurn.updateScore();
+    game.currentRound.currentTurn.calculateRespondents();
     expect(game.playerOne.score).to.equal(respondents1 + respondents2);
   })
 
@@ -126,10 +129,12 @@ beforeEach(() => {
     let answer2 = game.currentSurvey[2].answer;
     let respondents1 = game.currentSurvey[1].respondents;
     let respondents2 = game.currentSurvey[2].respondents;
+    console.log(respondents1, respondents2)
+    console.log(game.currentSurvey)
     game.currentRound.currentTurn.compileGuess(answer1);
     game.currentRound.currentTurn.compileGuess(answer2);
-    game.currentRound.currentTurn.updateScore();
-    expect(game.playerOne.score).to.equal((respondents1 + respondents2) * game.playerOne.multiplier);
+    game.currentRound.currentTurn.calculateRespondents();
+    expect(game.playerOne.score).to.equal(respondents1 + respondents2);
   });
 
   it('should have a working timer', () => {

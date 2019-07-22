@@ -55,7 +55,9 @@ class FastTurn extends Turn {
         })
         return totalPoints;
       }, 0)
+      console.log(points)
       this.currentPlayer.updateFinalScore(points)
+      console.log(this.currentPlayer)
       this.currentRound.endRound();
   }
 }
