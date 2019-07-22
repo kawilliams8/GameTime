@@ -57,11 +57,11 @@ const DOMupdates = {
   },  
 
   wrongAnswerBuzzer() {
-    new Audio('https://retired.sounddogs.com/previews/2122/mp3/255466_SOUNDDOGS__bu.mp3').play();
+    new Audio('http://23.237.126.42/ost/family-feud-1993-snes/ibmozskhab/11%20Strike.mp3').play();
   },
 
   correctAnswerDing() {
-    new Audio('https://www.myinstants.com/media/sounds/ding-sound-effect_2.mp3').play();
+    new Audio('http://23.237.126.42/ost/family-feud-1993-snes/pvjwehxopd/09%20Clang.mp3').play();
   },
 
   showRedX() {
@@ -94,12 +94,26 @@ const DOMupdates = {
   },
 
   displayWinner(player) {
+    new Audio('http://23.237.126.42/ost/family-feud-1993-snes/cxipbygzai/05%20Press%20Start%20Title%20Theme.mp3').play()
     $('.winner-name').text(player.name);
     $('.winner-points').text(player.score);
+    $('.board').hide();
+    $('.winner').show();
   },
 
   resetGame() {
     window.location.reload(true);
+  },
+
+  displayFastRoundMsg() {
+    $('.board').hide();
+    $('.fastMoney').show();
+  },
+
+  displayFastMoney() {
+    $('.board').show();
+    $('.redx').hide();
+    $('.fastMoney').hide();
   }
 }
 

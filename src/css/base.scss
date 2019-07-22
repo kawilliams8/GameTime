@@ -217,7 +217,9 @@ main {
 .main-button__submit-guess,
 .main-button__start-fast-turn, 
 .main-button__submit-fast-guess,
-.main-button__submit-multiplier {
+.main-button__submit-multiplier,
+.fastMoney-button,
+.winner-button {
   color: $black;
   background-color:$yellow;
   border: 3px dotted $red;
@@ -250,14 +252,15 @@ main {
   font-size: 36px;
   margin-top: 10px;
   margin-left: 90px;
-  width: 100px;
+  width: 175px;
 }
 
 .main-h3__player-two-name {
   margin-top: 10px;
-  margin-left: -70px;
+  margin-left: -90px;
   color: $black;
   font-size: 36px;
+  width: 175px;
 }
 
 ::-webkit-input-placeholder{
@@ -274,4 +277,13 @@ main {
     position: relative;
     z-index: 5;
   }
+}
+
+.fastMoney {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  margin-top: 30%;
 }
