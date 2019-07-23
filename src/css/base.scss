@@ -1,16 +1,5 @@
-$yellow: #fcfc54;
-$green: #54fc54;
-$red: #fc5454;
-$black: #000;
-$font: 'VT323', monospace;
+@import '_variables';
 
-//Use only the following font-sizes, in pixels:
-//36, 49, 65, 87, 116
-
-* {
-  // border: 1px solid blanchedalmond;
-  box-sizing: border-box;
-}
 body {
   background-color: $black;
   font-family: $font;
@@ -19,6 +8,12 @@ body {
 }
 
 //////////////////Splash page styles/////////////////
+
+.splash-image__size {
+  width: 80%;
+  margin: -50px 10% 0px 10%;
+}
+
 .main-inputs {
   margin: auto;
   text-align: center;
@@ -43,8 +38,8 @@ body {
 
 .main-input__hide {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 28px;
   height: 36px;
@@ -52,17 +47,10 @@ body {
   width: 250px;
 }
 
-.splash-image__size {
-  width: 80%;
-  margin: -50px 10% 0px 10%;
-  // margin-right: 10%;
-  // margin-top: -50px;
-}
+/////////////////////Main gameboard styles/////////////////
 
-/////////////////////Main game page styles/////////////////
 main {
-  background-color: $black;
-  color: $yellow;
+  color: $light-accent;
   height: 100%;
   width: 1280px;
   margin: auto;
@@ -91,12 +79,12 @@ main {
 .main-div__timer {
   grid-area: timer;
   text-align: center;
-}
-
-.main-h4__timer {
-  font-size: 49px;
-  padding-top: 10px;
-  margin: 4px 9px 0px 0px;
+  
+  .main-h4__timer {
+    font-size: 49px;
+    padding-top: 10px;
+    margin: 4px 9px 0px 0px;
+  }
 }
 
 .main-table__responses {
@@ -128,6 +116,7 @@ main {
 }
 
 /////////////////////Main game buttons and input/////////////////
+
 .main-section__game-buttons {
   grid-area: buttons;
 }
@@ -141,21 +130,21 @@ main {
 }
 
 .main-span__current-player {
-  color: $green;
+  color: $gameboard;
 }
 
 .welcomeCenter {
-  border: 8px dotted $yellow;
+  border: 8px dotted $light-accent;
   font-size: 49px;
   margin: 0 225px;
   text-align: center;
 }
 
-/////////////////////Main game player characters/////////////////
+/////////////////////Characters/////////////////
+
 .main-section__player-images {
   display: flex;
   grid-area: players;
-  // margin-top: 100px;
   justify-content: space-around;
 }
 
@@ -164,34 +153,35 @@ main {
   display: block;
   text-align: center;
   width: 150px;
-}
-
-.player.turned {
-  display: none;
-}
-
-.player.face {
-  display: block;
+  
+  &.turned {
+    display: none;
+  }
+  
+  &.face {
+    display: block;
+  }
 }
 
 /////////////////////Gameboard survey responses/////////////////
+
 .main-table__responses {
   border: none;
   border-collapse: collapse;
-}
-
-.tr {
-  border: 2px solid $red;
-  height: 64px;
-}
-
-.main-tr__middle-response {
-  margin: 0;
+  
+  .tr {
+    border: 2px solid $dark-accent;
+    height: 64px;
+    
+    .main-tr__middle-response {
+      margin: 0;
+    }
+  }
 }
 
 .main-button__submit-name {
-  background-color: $yellow;
-  border: 3px dotted $red; 
+  background-color: $light-accent;
+  border: 3px dotted $dark-accent; 
   color: $black;
   font-family: $font;
   font-size: 28px;
@@ -203,8 +193,8 @@ main {
 .main-input__multiplier-input,
 .main-input__fast-guess-input {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 36px;
   height: 60px;
@@ -221,13 +211,22 @@ main {
 .fastMoney-button,
 .winner-button {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 28px;
   height: 60px;
   width:200px;
   margin: 40px 25px 25px 25px;
+}
+
+.fastMoney {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  margin-top: 30%;
 }
 
 .main-button__submit-guess {
@@ -247,7 +246,8 @@ main {
   z-index: 100;
 }
 
-.main-h3__player-one-name {
+.main-h3__player-one-name, 
+.main-h3__player-two-name {
   color: $black;
   font-size: 36px;
   margin-top: 10px;
@@ -256,15 +256,11 @@ main {
 }
 
 .main-h3__player-two-name {
-  margin-top: 10px;
   margin-left: -90px;
-  color: $black;
-  font-size: 36px;
-  width: 175px;
 }
 
 ::-webkit-input-placeholder{
-  color: $red;
+  color: $dark-accent;
   opacity: 0.5;
 }
 
@@ -273,17 +269,8 @@ main {
   margin: 25px auto 0px auto;
 
   img {
-    height: 150px;
+    height: 125px;
     position: relative;
     z-index: 5;
   }
-}
-
-.fastMoney {
-  text-align: center;
-}
-
-.winner {
-  text-align: center;
-  margin-top: 30%;
 }
