@@ -12,6 +12,12 @@ body {
 }
 
 //////////////////Splash page styles/////////////////
+
+.splash-image__size {
+  width: 80%;
+  margin: -50px 10% 0px 10%;
+}
+
 .main-inputs {
   margin: auto;
   text-align: center;
@@ -45,16 +51,9 @@ body {
   width: 250px;
 }
 
-.splash-image__size {
-  width: 80%;
-  margin: -50px 10% 0px 10%;
-  // margin-right: 10%;
-  // margin-top: -50px;
-}
+/////////////////////Main gameboard styles/////////////////
 
-/////////////////////Main game page styles/////////////////
 main {
-  background-color: $black;
   color: $light-accent;
   height: 100%;
   width: 1280px;
@@ -84,12 +83,12 @@ main {
 .main-div__timer {
   grid-area: timer;
   text-align: center;
-}
-
-.main-h4__timer {
-  font-size: 49px;
-  padding-top: 10px;
-  margin: 4px 9px 0px 0px;
+  
+  .main-h4__timer {
+    font-size: 49px;
+    padding-top: 10px;
+    margin: 4px 9px 0px 0px;
+  }
 }
 
 .main-table__responses {
@@ -121,6 +120,7 @@ main {
 }
 
 /////////////////////Main game buttons and input/////////////////
+
 .main-section__game-buttons {
   grid-area: buttons;
 }
@@ -144,11 +144,11 @@ main {
   text-align: center;
 }
 
-/////////////////////Main game player characters/////////////////
+/////////////////////Characters/////////////////
+
 .main-section__player-images {
   display: flex;
   grid-area: players;
-  // margin-top: 100px;
   justify-content: space-around;
 }
 
@@ -157,29 +157,30 @@ main {
   display: block;
   text-align: center;
   width: 150px;
-}
-
-.player.turned {
-  display: none;
-}
-
-.player.face {
-  display: block;
+  
+  &.turned {
+    display: none;
+  }
+  
+  &.face {
+    display: block;
+  }
 }
 
 /////////////////////Gameboard survey responses/////////////////
+
 .main-table__responses {
   border: none;
   border-collapse: collapse;
-}
-
-.tr {
-  border: 2px solid $dark-accent;
-  height: 64px;
-}
-
-.main-tr__middle-response {
-  margin: 0;
+  
+  .tr {
+    border: 2px solid $dark-accent;
+    height: 64px;
+    
+    .main-tr__middle-response {
+      margin: 0;
+    }
+  }
 }
 
 .main-button__submit-name {
@@ -223,6 +224,15 @@ main {
   margin: 40px 25px 25px 25px;
 }
 
+.fastMoney {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  margin-top: 30%;
+}
+
 .main-button__submit-guess {
   margin-left: -70px;
 }
@@ -240,7 +250,8 @@ main {
   z-index: 100;
 }
 
-.main-h3__player-one-name {
+.main-h3__player-one-name, 
+.main-h3__player-two-name {
   color: $black;
   font-size: 36px;
   margin-top: 10px;
@@ -249,11 +260,7 @@ main {
 }
 
 .main-h3__player-two-name {
-  margin-top: 10px;
   margin-left: -90px;
-  color: $black;
-  font-size: 36px;
-  width: 175px;
 }
 
 ::-webkit-input-placeholder{
@@ -261,22 +268,13 @@ main {
   opacity: 0.5;
 }
 
-.dark-accentx {
+.redx {
   grid-area: gameboard;
   margin: 25px auto 0px auto;
 
   img {
-    height: 150px;
+    height: 125px;
     position: relative;
     z-index: 5;
   }
-}
-
-.fastMoney {
-  text-align: center;
-}
-
-.winner {
-  text-align: center;
-  margin-top: 30%;
 }
