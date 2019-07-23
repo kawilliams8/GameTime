@@ -11,7 +11,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['turnHeadsForPlayers', 'displayCurrentTurn', 'updateFastRoundButtons', 'showMultiplierInput', 'hideFastGuessInput'], () => true);
+chai.spy.on(DOMupdates, ['turnHeadsForPlayers', 'displayCurrentTurn', 'updateFastRoundButtons', 'showMultiplierInput', 'hideFastGuessInput', 'displayFastMoney', 'displayFastRoundMsg'], () => true);
 
 describe('FullRound', () => {
   let game;
