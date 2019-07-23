@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>FAMILY FEUD</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main class="main">
+      <section class="main-splash__hide splash">
+        <img class="main-image__hide splash-image__size" src='./images/family-feud_splash.png'>
+      </section>
+      <section class="main-splash__hide main-inputs splash">
+        <div class="main-div__player-one-field">
+          <label class="main-label__player-one" for="main-input__player-one">Player One Name:</label>
+          <input class="main-input__hide main-input__player-one" id="main-input__player-one" type="text">
+          <br>
+        </div>
+        <div class="main-div__player-two-field">
+          <label class="main-label__player-two" for="main-input__player-two">Player Two Name:</label>
+          <input class="main-input__hide main-input__player-two" id="main-input__player-one" type="text">
+        <br>
+        </div>
+        <button class="main-button__hide main-button__submit-name">SUBMIT NAMES</button>
+      </section>
+      <section class="main-container__scoreboard board">
+        <img class="main-image__scoreboard" src='./images/family-feud_board.png'>
+        <div class="main-div__player-one-score">
+          <h2 class="main-h2__player-one-score">0</h2>
+          <h3 class="main-h3__player-one-name">Player 1</h3>
+        </div>
+        <div class="main-div__timer">
+          <h4 class="main-h4__timer">0</h4>
+        </div>
+        <aside class='redx board'>
+          <img class='board' src='./images/red-x.png'>
+        </aside>
+        <table class="main-table__responses">
+          <tbody>
+            <tr class="main-tr__top-response tr">
+              <td class="main-tr__top-answer td-answers"></td>
+              <td class="main-tr__top-respondents td-respondents"></td>
+            </tr>
+            <tr class="main-tr__middle-response tr">
+              <td class="main-tr__middle-answer td-answers"></td>
+              <td class="main-tr__middle-respondents td-respondents"></td>
+            </tr>
+            <tr class="main-tr__bottom-response tr">
+                <td class="main-tr__bottom-answer td-answers"></td>
+                <td class="main-tr__bottom-respondents td-respondents"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="main-div__player-two-score">
+          <h2 class="main-h2__player-two-score">0</h2>
+          <h3 class="main-h3__player-two-name">Player Two</h3>
+        </div>
+        <div class="main-div__questions">
+          <p class="main-p__question-prompt">
+            <span class="main-span__current-player welcomeCenter">&nbsp; WELCOME TO FAMILY FEUD &nbsp;</span><span class="main-span__current-question"></span>
+          </p>
+        </div>
+        <section class="main-section__player-images board">
+          <div>
+            <img class="main-image__player-one_face player one face" src='./images/player-one_face.png'>
+            <img class="main-image__player-one_face player one turned" src='./images/player-one_turned.png'>
+            <span class="main-span__player-one-name player one">PLAYER 1</span>
+            <img class="main-image__player-one_podium player one podium" src='./images/player-one_podium.png'>
+          </div>
+          <div>
+            <img class="main-image__player-two_face player two face" src='./images/player-two_face.png'>
+            <img class="main-image__player-one_face player two turned" src='./images/player-two_turned.png'>
+            <span class="main-span__player-two-name player two">PLAYER 2</span>
+            <img class="main-image__player-two_podium player two podium" src='./images/player-two_podium.png'>
+          </div>
+        </section>
+        <section class="main-section__guess-input board">
+          <input class="main-input__guess-input" type="text" placeholder="And the survey says...">
+          <input class="main-input__multiplier-input" type="number" placeholder="Enter a multiplier: 1 - 5">
+          <input class="main-input__fast-guess-input" type="text" placeholder="Submit as many guesses as you can!">
+        </section>
+        <section class="main-section__game-buttons board">
+          <button class="main-button__submit-guess">SUBMIT GUESS</button>
+          <button class="main-button__submit-multiplier">SUBMIT MULTIPLIER</button>
+          <button class="main-button__submit-fast-guess">SUBMIT GUESS</button>
+        </section>
+          <section class="main-section__left-buttons">
+            <button class="main-button__start-game">START GAME</button>
+            <button class="main-button__start-fast-turn">START FAST MONEY</button>
+            <button class="main-button__reset-game">RESET GAME</button>
+          </section>
+      </section>
+      <aside class="fastMoney roundSplash">
+        <h2 class="fastMoney-header">Welcome to Fast Money!</h2>
+        <p class="fastMoney-p">First, you will enter a multiplier between one and five to multiply the points you earn during your Fast Money turn.
+          You will have 30 seconds to enter as many answers as you can. When the time is up, the points you earn during your Fast Money turn 
+        will be added to your score from the previous two rounds.</p>
+        <button class="fastMoney-button">LET'S PLAY!</button>
+      </aside>
+      <aside class="winner roundSplash">
+        <h2>Congratulations, <span class="winner-name">Name</span>, you won Family Feud with <span class="winner-points">Score</span> points!</h2>
+        <button class="winner-button">PLAY AGAIN!</button>
+      </aside>
+    </main>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
