@@ -1,16 +1,9 @@
-$yellow: #fcfc54;
-$green: #54fc54;
-$red: #fc5454;
+$light-accent: #fcfc54;
+$gameboard: #54fc54;
+$dark-accent: #fc5454;
 $black: #000;
 $font: 'VT323', monospace;
 
-//Use only the following font-sizes, in pixels:
-//36, 49, 65, 87, 116
-
-* {
-  // border: 1px solid blanchedalmond;
-  box-sizing: border-box;
-}
 body {
   background-color: $black;
   font-family: $font;
@@ -43,8 +36,8 @@ body {
 
 .main-input__hide {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 28px;
   height: 36px;
@@ -62,7 +55,7 @@ body {
 /////////////////////Main game page styles/////////////////
 main {
   background-color: $black;
-  color: $yellow;
+  color: $light-accent;
   height: 100%;
   width: 1280px;
   margin: auto;
@@ -141,11 +134,11 @@ main {
 }
 
 .main-span__current-player {
-  color: $green;
+  color: $gameboard;
 }
 
 .welcomeCenter {
-  border: 8px dotted $yellow;
+  border: 8px dotted $light-accent;
   font-size: 49px;
   margin: 0 225px;
   text-align: center;
@@ -181,7 +174,7 @@ main {
 }
 
 .tr {
-  border: 2px solid $red;
+  border: 2px solid $dark-accent;
   height: 64px;
 }
 
@@ -190,8 +183,8 @@ main {
 }
 
 .main-button__submit-name {
-  background-color: $yellow;
-  border: 3px dotted $red; 
+  background-color: $light-accent;
+  border: 3px dotted $dark-accent; 
   color: $black;
   font-family: $font;
   font-size: 28px;
@@ -203,8 +196,8 @@ main {
 .main-input__multiplier-input,
 .main-input__fast-guess-input {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 36px;
   height: 60px;
@@ -221,8 +214,8 @@ main {
 .fastMoney-button,
 .winner-button {
   color: $black;
-  background-color:$yellow;
-  border: 3px dotted $red;
+  background-color:$light-accent;
+  border: 3px dotted $dark-accent;
   font-family: $font;
   font-size: 28px;
   height: 60px;
@@ -264,11 +257,11 @@ main {
 }
 
 ::-webkit-input-placeholder{
-  color: $red;
+  color: $dark-accent;
   opacity: 0.5;
 }
 
-.redx {
+.dark-accentx {
   grid-area: gameboard;
   margin: 25px auto 0px auto;
 
