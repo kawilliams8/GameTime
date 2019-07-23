@@ -46,16 +46,16 @@ class FastTurn extends Turn {
         return survey;
       }
     })
-      let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
-        this.guesses.forEach(guess => {
-          if(guess === matchingSurvey.answer.toLowerCase()) {
-            totalPoints += matchingSurvey.respondents;
-          }
-        })
-        return totalPoints;
-      }, 0)
-      this.currentPlayer.updateFinalScore(points)
-      this.currentRound.endRound();
+    let points = matchingSurveys.reduce((totalPoints, matchingSurvey) => {
+      this.guesses.forEach(guess => {
+        if (guess === matchingSurvey.answer.toLowerCase()) {
+          totalPoints += matchingSurvey.respondents;
+        }
+      })
+      return totalPoints;
+    }, 0)
+    this.currentPlayer.updateFinalScore(points)
+    this.currentRound.endRound();
   }
 }
 
