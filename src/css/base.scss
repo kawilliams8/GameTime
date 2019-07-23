@@ -229,9 +229,10 @@ main {
   margin-top: 30%;
 }
 
-.main-button__submit-guess {
+.main-button__submit-guess,
+.main-button__submit-multiplier {
   margin-left: -70px;
-}
+};
 
 .main-section__player-images {
   position: relative;
