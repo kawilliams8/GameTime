@@ -24,7 +24,7 @@ module.exports = {
                 options: {
                   name: '[name].[ext]',
                   outputPath: 'images/',
-                  publicPath: '/GameTime/'
+                  publicPath: 'images'
                 }
               }
             ]
